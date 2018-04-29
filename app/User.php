@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'url', 'theme_id',
+        'name', 'email', 'password', 'url', 'tittle', 'theme_id',
     ];
 
     /**
@@ -41,5 +41,14 @@ class User extends Authenticatable
     public function theme()
     {
         return $this->belongsTo('TuNegocio\Theme');
+    }
+
+    /**
+     * The sections that belong to the user.
+     */
+    public function sections()
+    {
+        return $this->belongsToMany('TuNegocio\Section')->using('TuNegocio\SectionUser');
+        //->withPivot('background_color', 'background_img','visible');
     }
 }

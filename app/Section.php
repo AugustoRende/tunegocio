@@ -39,4 +39,14 @@ class Section extends Model
     public function theme()
     {
         return $this->belongsTo('TuNegocio\Theme');
-    }}
+    }
+
+    /**
+     * The users that belong to the section.
+     */
+    public function users()
+    {
+        return $this->belongsToMany('TuNegocio\User')->using('TuNegocio\SectionUser');
+        //->withPivot('background_color', 'background_img','visible');
+    }
+}

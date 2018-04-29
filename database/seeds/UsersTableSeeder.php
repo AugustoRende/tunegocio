@@ -17,6 +17,18 @@ class UsersTableSeeder extends Seeder
             'email' => 'augustorendegiacomelli@gmail.com',
             'password' => bcrypt('augusto'),
             'url' => 'augustorende',
+            'tittle' => 'Augusto Rende Giacomelli',
+            'theme_id' => '1',
+            'remember_token' => str_random(10),
+        ]);
+
+        User::create([
+            'name' => 'Lucia Oviedo',
+            'email' => 'lucioviedo@gmail.com',
+            'password' => bcrypt('augusto'),
+            'url' => 'luciaoviedo',
+            'tittle' => 'Lucía Oviedo',
+            'theme_id' => '1',
             'remember_token' => str_random(10),
         ]);
     }
