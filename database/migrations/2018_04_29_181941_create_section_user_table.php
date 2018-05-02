@@ -19,6 +19,7 @@ class CreateSectionUserTable extends Migration
             $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade')->onUpdate('no action');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('no action');
+            $table->string('primary_color');
             $table->string('background_color');
             $table->string('background_img');
             $table->tinyInteger('visible')->default(1);

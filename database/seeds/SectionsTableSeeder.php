@@ -15,36 +15,48 @@ class SectionsTableSeeder extends Seeder
         Section::create([
             'code' => 'theme1.inicio',
             'name' => 'Inicio',
+            'href' => '#intro',
+            'allow_image' => '1',
             'theme_id' => '1',
         ]);
         
         Section::create([
             'code' => 'theme1.sobremi',
-            'name' => 'Sobre Mi',
+            'name' => 'Sobre mi',
+            'href' => '#about',
+            'allow_image' => '0',
             'theme_id' => '1',
         ]);
         
         Section::create([
             'code' => 'theme1.experiencias',
             'name' => 'Experiencias',
+            'href' => '#resume',
+            'allow_image' => '0',
             'theme_id' => '1',
         ]);
         
         Section::create([
             'code' => 'theme1.hobbies',
             'name' => 'Hobbies',
+            'href' => '#portfolio',
+            'allow_image' => '0',
             'theme_id' => '1',
         ]);
 
         Section::create([
             'code' => 'theme1.servicios',
             'name' => 'Servicios',
+            'href' => '#services',
+            'allow_image' => '1',
             'theme_id' => '1',
         ]);
 
         Section::create([
             'code' => 'theme1.contacto',
             'name' => 'Contacto',
+            'href' => '#contact',
+            'allow_image' => '0',
             'theme_id' => '1',
         ]);
     }

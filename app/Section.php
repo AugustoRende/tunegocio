@@ -14,7 +14,7 @@ class Section extends Model
      * @var array
      */
     protected $fillable = [
-        'code', 'name', 'theme_id',
+        'code', 'name', 'theme_id', 'href', 'allow_image',
     ];
 
     /**

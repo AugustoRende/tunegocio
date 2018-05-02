@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'url', 'tittle', 'theme_id',
+        'name', 'email', 'password', 'url', 'tittle', 'logo', 'theme_id', 'primary_color', 'secondary_color',
     ];
 
     /**
@@ -48,7 +48,7 @@ class User extends Authenticatable
      */
     public function sections()
     {
-        return $this->belongsToMany('TuNegocio\Section')->using('TuNegocio\SectionUser');
-        //->withPivot('background_color', 'background_img','visible');
+        //return $this->belongsToMany('TuNegocio\Section')->using('TuNegocio\SectionUser');
+        return $this->belongsToMany('TuNegocio\Section')->withPivot('user_id','section_id','primary_color','background_color', 'background_img','visible');
     }
 }

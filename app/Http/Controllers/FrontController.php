@@ -20,10 +20,15 @@ class FrontController extends Controller
         $user = User::where('url', $urlOrganization)->first();
 
         if ($user) {
+            //OBTENGO LA VISTA A VISUALIZAR
             $theme = $user->theme()->first();
             $view = $theme->code.'/'.$theme->code;
             
-            return view($view);
+            //OBTENGO LOS DATOS A VISUALIZAR
+            $sections = $user->sections()->where('visible',1)->get();
+
+           // dd($sections[0]->pivot->background_color);
+            return view($view, compact('user','sections'));
         }
 
         return view('welcome');

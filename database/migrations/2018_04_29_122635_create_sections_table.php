@@ -17,6 +17,8 @@ class CreateSectionsTable extends Migration
             $table->increments('id');
             $table->string('code');
             $table->string('name');
+            $table->string('href');
+            $table->tinyInteger('allow_image')->default(1);
             $table->integer('theme_id')->unsigned();
             $table->foreign('theme_id')->references('id')->on('themes')->onDelete('cascade')->onUpdate('no action');
             $table->tinyInteger('active')->default(1);

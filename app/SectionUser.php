@@ -14,7 +14,7 @@ class SectionUser extends Pivot
      * @var array
      */
     protected $fillable = [
-        'user_id', 'section_id', 'background_color', 'background_img', 'visible'
+        'user_id', 'section_id', 'primary_color', 'background_color', 'background_img', 'visible'
     ];
 
     /**
