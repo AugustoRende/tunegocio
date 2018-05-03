@@ -32,5 +32,4 @@ class SectionUser extends Pivot
      * @var array
      */
     protected $dates = ['deleted_at'];
-
 }

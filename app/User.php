@@ -5,6 +5,7 @@ namespace TuNegocio;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -36,7 +37,45 @@ class User extends Authenticatable
     protected $dates = ['deleted_at'];
 
     /**
-     * Get the thene that owns the user.
+     * Get data for theme that owns the user.
+     */
+    public function getData()
+    {
+        return DB::table('vw_component_attributes_user')->where('user_id',$this->id)->get();
+    }
+
+    /**
+     * Get componentData for theme that owns the user.
+     */
+    public function getComponentValue($section_name, $component_name)
+    {
+        $data = DB::table('vw_component_attributes_user')->where([
+                                                        ['user_id',$this->id],
+                                                        ['section_name',$section_name],
+                                                        ['component_name',$component_name],
+                                                    ])->get();
+
+        if ($data->count() == 1) {
+            return $data->first()->VALUE;
+        }
+        return $data;
+    }
+       
+    /**
+     * Get componentDataGroup for theme that owns the user .
+     */
+    public function getComponentValuesGroup($section_name, $component_name, $cant)
+    {
+        $data = DB::table('vw_component_attributes_user')->where([
+                                                        ['user_id',$this->id],
+                                                        ['section_name',$section_name],
+                                                        ['component_name',$component_name],
+                                                    ])->get();
+        return $data->chunk($cant);
+    }
+
+    /**
+     * Get the theme that owns the user.
      */
     public function theme()
     {
@@ -44,11 +83,18 @@ class User extends Authenticatable
     }
 
     /**
+     * Get the ComponentSectionUserAtributtes for the user.
+     */
+    public function componentSectionsAttributes()
+    {
+        return $this->hasMany('TuNegocio\ComponentSectionUserAttribute');
+    }
+
+    /**
      * The sections that belong to the user.
      */
     public function sections()
     {
-        //return $this->belongsToMany('TuNegocio\Section')->using('TuNegocio\SectionUser');
         return $this->belongsToMany('TuNegocio\Section')->withPivot('user_id','section_id','primary_color','background_color', 'background_img','visible');
     }
 }

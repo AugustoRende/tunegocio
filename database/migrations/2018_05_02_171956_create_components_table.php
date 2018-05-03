@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSectionUserTable extends Migration
+class CreateComponentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,15 @@ class CreateSectionUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('section_user', function (Blueprint $table) {
+        Schema::create('components', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->integer('component_type_id')->unsigned();
+            $table->foreign('component_type_id')->references('id')->on('component_types')->onDelete('cascade')->onUpdate('no action');
             $table->integer('section_id')->unsigned();
             $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade')->onUpdate('no action');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('no action');
-            $table->string('primary_color')->nullable();
-            $table->string('background_color')->nullable();
-            $table->string('background_img')->nullable();
-            $table->tinyInteger('visible')->default(1);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -34,6 +32,6 @@ class CreateSectionUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('section_user');
+        Schema::dropIfExists('components');
     }
 }

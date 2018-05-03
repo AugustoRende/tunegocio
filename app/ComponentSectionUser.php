@@ -5,7 +5,7 @@ namespace TuNegocio;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Section extends Model
+class ComponentSectionUser extends Model
 {
     use SoftDeletes;
     /**
@@ -14,7 +14,7 @@ class Section extends Model
      * @var array
      */
     protected $fillable = [
-        'code', 'name', 'theme_id', 'href', 'allow_image',
+        'user_id', 'section_user_id', 'component_id', 'color', 'visible',
     ];
 
     /**
@@ -32,21 +32,4 @@ class Section extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
-
-    /**
-     * Get the theme that owns the section.
-     */
-    public function theme()
-    {
-        return $this->belongsTo('TuNegocio\Theme');
-    }
-
-    /**
-     * The users that belong to the section.
-     */
-    public function users()
-    {
-        return $this->belongsToMany('TuNegocio\User')->withPivot('user_id', 'section_id', 'primary_color', 'background_color', 'background_img', 'visible');
-
-    }
 }

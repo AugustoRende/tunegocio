@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSectionUserTable extends Migration
+class CreateComponentSectionUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateSectionUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('section_user', function (Blueprint $table) {
+        Schema::create('component_section_user', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('section_id')->unsigned();
-            $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade')->onUpdate('no action');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('no action');
-            $table->string('primary_color')->nullable();
-            $table->string('background_color')->nullable();
-            $table->string('background_img')->nullable();
+            $table->integer('section_user_id')->unsigned();
+            $table->foreign('section_user_id')->references('id')->on('section_user')->onDelete('cascade')->onUpdate('no action');
+            $table->integer('component_id')->unsigned();
+            $table->foreign('component_id')->references('id')->on('components')->onDelete('cascade')->onUpdate('no action');
+            $table->string('color')->nullable();
             $table->tinyInteger('visible')->default(1);
             $table->timestamps();
         });
@@ -34,6 +34,6 @@ class CreateSectionUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('section_user');
+        Schema::dropIfExists('component_section_user');
     }
 }

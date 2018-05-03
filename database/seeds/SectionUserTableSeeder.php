@@ -12,46 +12,18 @@ class SectionUserTableSeeder extends Seeder
      */
     public function run()
     {
-        SectionUser::create([
-            'user_id' => '1',
-            'section_id' => '1',
-            'background_color' => '#FFFFFF',
-            'background_img' => 'bg.jpg',
-        ]);
+        DB::table('section_user')->insert(['section_id' => 1,'user_id' => 1,'primary_color' => '#2ECC71']);
+        DB::table('section_user')->insert(['section_id' => 2,'user_id' => 1,'primary_color' => '#2ECC71']);
+        DB::table('section_user')->insert(['section_id' => 3,'user_id' => 1,'primary_color' => '#2ECC71']);
+        DB::table('section_user')->insert(['section_id' => 4,'user_id' => 1,'primary_color' => '#2ECC71']);
+        DB::table('section_user')->insert(['section_id' => 5,'user_id' => 1,'primary_color' => '#2ECC71']);
+        DB::table('section_user')->insert(['section_id' => 6,'user_id' => 1,'primary_color' => '#2ECC71']);
 
-        SectionUser::create([
-            'user_id' => '1',
-            'section_id' => '2',
-            'background_color' => '#FFFFFF',
-            'background_img' => 'bg.jpg',
-        ]);
-
-        SectionUser::create([
-            'user_id' => '1',
-            'section_id' => '3',
-            'background_color' => '#FFFFFF',
-            'background_img' => 'bg.jpg',
-        ]);
-
-        SectionUser::create([
-            'user_id' => '1',
-            'section_id' => '4',
-            'background_color' => '#FFFFFF',
-            'background_img' => 'bg.jpg',
-        ]);
-
-        SectionUser::create([
-            'user_id' => '1',
-            'section_id' => '5',
-            'background_color' => '#FFFFFF',
-            'background_img' => 'bg.jpg',
-        ]);
-
-        SectionUser::create([
-            'user_id' => '1',
-            'section_id' => '6',
-            'background_color' => '#FFFFFF',
-            'background_img' => 'bg.jpg',
-        ]);
+        DB::table('section_user')->insert(['section_id' => 1,'user_id' => 2,'primary_color' => '#A5178D', 'background_img' => '/images/luciaoviedo/fondo.jpg']);
+        DB::table('section_user')->insert(['section_id' => 2,'user_id' => 2,'primary_color' => '#A5178D']);
+        DB::table('section_user')->insert(['section_id' => 3,'user_id' => 2,'primary_color' => '#A5178D']);
+        DB::table('section_user')->insert(['section_id' => 4,'user_id' => 2,'primary_color' => '#A5178D']);
+        DB::table('section_user')->insert(['section_id' => 5,'user_id' => 2,'primary_color' => '#A5178D', 'background_img' => '/images/luciaoviedo/fondo.jpg']);
+        DB::table('section_user')->insert(['section_id' => 6,'user_id' => 2,'primary_color' => '#A5178D']);
     }
 }
