@@ -124,7 +124,7 @@
 	   	</div> <!-- /intro-content --> 
 
    		<ul class="intro-social">
-   			@foreach ($user->getComponentValue('Inicio','Red Social') as $social)
+   			@foreach ($user->getComponentValuesGroup('Inicio','Red Social') as $social)
          		<li><a href="{{$social->VALUE}}" target="_blank"><i class="fa fa-{{explode('.', $social->VALUE)[1]}}"></i></a></li>
          	@endforeach
       	</ul> <!-- /intro-social -->      	

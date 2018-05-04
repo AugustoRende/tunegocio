@@ -54,24 +54,27 @@ class User extends Authenticatable
                                                         ['section_name',$section_name],
                                                         ['component_name',$component_name],
                                                     ])->get();
-
+        //dd($data);
         if ($data->count() == 1) {
             return $data->first()->VALUE;
         }
         return $data;
     }
-       
+
     /**
      * Get componentDataGroup for theme that owns the user .
      */
-    public function getComponentValuesGroup($section_name, $component_name, $cant)
+    public function getComponentValuesGroup($section_name, $component_name, $cant=null)
     {
         $data = DB::table('vw_component_attributes_user')->where([
                                                         ['user_id',$this->id],
                                                         ['section_name',$section_name],
                                                         ['component_name',$component_name],
                                                     ])->get();
-        return $data->chunk($cant);
+        if ($cant) {
+            return $data->chunk($cant);
+        }
+        return $data;
     }
 
     /**
