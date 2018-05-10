@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateComponentTypesTable extends Migration
+class CreateComponentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateComponentTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('component_types', function (Blueprint $table) {
+        Schema::create('components', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->timestamps();
@@ -28,6 +28,6 @@ class CreateComponentTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('component_types');
+        Schema::dropIfExists('components');
     }
 }

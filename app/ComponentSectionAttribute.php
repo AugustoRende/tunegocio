@@ -2,9 +2,9 @@
 
 namespace TuNegocio;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class ComponentSectionUserAttribute extends Model
+class ComponentSectionAttribute extends Pivot
 {
     /**
      * The attributes that are mass assignable.
@@ -12,7 +12,7 @@ class ComponentSectionUserAttribute extends Model
      * @var array
      */
     protected $fillable = [
-        'comp_section_user_id', 'component_attribute_id', 'value',
+        'comp_section_id', 'comp_attribute_id', 'value',
     ];
 
     /**
@@ -33,11 +33,10 @@ class ComponentSectionUserAttribute extends Model
     }
 
     /**
-     * Get the componentAttribute that owns the ComponentSectionAttribute.
+     * Get the componentSection that owns the ComponentSectionAttribute.
      */
-    public function componentSectionUser()
+    public function componentSection()
     {
-        return $this->belongsTo('TuNegocio\ComponentSectionUser');
+        return $this->belongsTo('TuNegocio\ComponentSection');
     }
-
 }

@@ -42,11 +42,19 @@ class Section extends Model
     }
 
     /**
-     * The users that belong to the section.
+     * Get the componentSections for the section.
      */
-    public function users()
+    public function componentSections()
     {
-        return $this->belongsToMany('TuNegocio\User')->withPivot('user_id', 'section_id', 'primary_color', 'background_color', 'background_img', 'visible');
+        return $this->hasMany('TuNegocio\ComponentSection');
+    }
+
+    /**
+     * The components that belong to the section.
+     */
+    public function components()
+    {
+        return $this->belongsToMany('TuNegocio\Component','component_sections')->withPivot('component_id', 'section_id', 'name');
 
     }
 }

@@ -15,7 +15,7 @@ class AddThemeIdToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->integer('theme_id')->unsigned()->nullable();
-            $table->foreign('theme_id')->references('id')->on('themes')->onDelete('cascade')->onUpdate('no action');
+            $table->foreign('theme_id')->references('id')->on('themes')->onDelete('no action')->onUpdate('no action');
         });
     }
 

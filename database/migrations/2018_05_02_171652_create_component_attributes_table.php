@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateComponentTypeAttributesTable extends Migration
+class CreateComponentAttributesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateComponentTypeAttributesTable extends Migration
      */
     public function up()
     {
-        Schema::create('component_type_attributes', function (Blueprint $table) {
+        Schema::create('component_attributes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('type');
-            $table->integer('component_type_id')->unsigned();
-            $table->foreign('component_type_id')->references('id')->on('component_types')->onDelete('cascade')->onUpdate('no action');
+            $table->integer('component_id')->unsigned();
+            $table->foreign('component_id')->references('id')->on('components')->onDelete('no action')->onUpdate('no action');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -31,6 +31,6 @@ class CreateComponentTypeAttributesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('component_type_attributes');
+        Schema::dropIfExists('component_attributes');
     }
 }

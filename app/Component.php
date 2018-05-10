@@ -14,7 +14,7 @@ class Component extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'component_type_id', 'section_id',
+        'name',
     ];
 
     /**
@@ -33,11 +33,30 @@ class Component extends Model
      */
     protected $dates = ['deleted_at'];
 
+
     /**
-     * Get the Component Type that owns the Component.
+     * Get the componentSections for the component.
      */
-    public function componentType()
+    public function componentSections()
     {
-        return $this->belongsTo('TuNegocio\ComponentType');
+        return $this->hasMany('TuNegocio\ComponentSection');
     }
+
+    /**
+     * The sections that belong to the section.
+     */
+    public function sections()
+    {
+        return $this->belongsToMany('TuNegocio\Section','component_sections')->withPivot('component_id', 'section_id', 'name');
+
+    }
+
+    /**
+     * Get the componentAttributes for the component.
+     */
+    public function componentAttributes()
+    {
+        return $this->hasMany('TuNegocio\componentAttributes');
+    }
+
 }

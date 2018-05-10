@@ -50,7 +50,10 @@ class FrontController extends Controller
             $view = $theme->code.'/'.$theme->code;
             
             //OBTENGO LOS DATOS A VISUALIZAR
-            $sections = $user->sections()->where('visible',1)->get();
+            
+            //dd($user->componentSections()->get()->groupBy('section_id')->toArray());
+            //dd($user->componentSections()->first()->attributes()->first()->pivot->value);
+            $sections = $user->sections();
 
             //ACCESO A LOS VALORES DE LOS COMPONENTES
             // dd($user->getComponentValue('Inicio','Red Social'));

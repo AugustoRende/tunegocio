@@ -20,7 +20,7 @@ class UsersTableSeeder extends Seeder
             'tittle' => 'Augusto Rende Giacomelli',
             'theme_id' => '1',
             'primary_color' => '#2ECC71',
-            'secondary_color' => '#FFFFFF',
+            //'secondary_color' => '#FFFFFF',
             'remember_token' => str_random(10),
         ]);
 
@@ -32,7 +32,7 @@ class UsersTableSeeder extends Seeder
             'tittle' => 'Lucía Oviedo',
             'theme_id' => '1',
             'primary_color' => '#A5178D',
-            'secondary_color' => '#FFFFFF',
+            //'secondary_color' => '#FFFFFF',
             'remember_token' => str_random(10),
         ]);
     }

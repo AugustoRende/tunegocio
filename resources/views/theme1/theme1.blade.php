@@ -29,50 +29,54 @@
 
 		/* LOGO */
 		@if ($user->logo)
-			header .logo a {background: url({{($user->logo)}}) no-repeat center; background-size: 92px 15px;}
+			header .logo a {background: url({{ ($user->logo)}}) no-repeat center; background-size: 92px 15px;}
 		@endif
 
 		/* SECTIONS */
 		@foreach ($sections as $section)
 			@if ($section->href == '#intro')
-				.intro-content h5, .intro-social li a:hover, .intro-social li a:focus, button.stroke, a .smoothscroll {color: {{ $section->pivot->primary_color }}}
-				.intro-content .button:hover, .intro-content .button:focus, button.stroke, .button.stroke, button.stroke:hover, .button.stroke:hover {border: 3px solid {{ $section->pivot->primary_color }}; color: {{ $section->pivot->primary_color }} }
+				.intro-content h5, .intro-social li a:hover, .intro-social li a:focus, button.stroke, a .smoothscroll {color: {{ $user->primary_color }}}
+				.intro-content .button:hover, .intro-content .button:focus, button.stroke, .button.stroke, button.stroke:hover, .button.stroke:hover {border: 3px solid {{ $user->primary_color }}; color: {{ $user->primary_color }} }
 			@endif
 
 			@if ($section->href == '#about')
-				#about .section-intro h5 {color: {{$section->pivot->primary_color}} }
+				#about .section-intro h5 {color: {{$user->primary_color}} }
 			@endif
 
 			@if ($section->href == '#resume')
-				#resume .section-intro h5 {color: {{$section->pivot->primary_color}} }
-				#resume .resume-header h2 {color: {{$section->pivot->primary_color}} }
+				#resume .section-intro h5 {color: {{$user->primary_color}} }
+				#resume .resume-header h2 {color: {{$user->primary_color}} }
 			@endif
 
 			@if ($section->href == '#portfolio')
-				#portfolio .section-intro h5 {color: {{$section->pivot->primary_color}} } 
+				#portfolio .section-intro h5 {color: {{$user->primary_color}} } 
 			@endif
 
 			@if ($section->href == '#services')
-				#services .section-intro h5, .services-list .icon i {color: {{$section->pivot->primary_color}} }
-				.owl-theme .owl-controls .owl-page.active span {background-color: {{$section->pivot->primary_color}} }
+				#services .section-intro h5, .services-list .icon i {color: {{$user->primary_color}} }
+				.owl-theme .owl-controls .owl-page.active span {background-color: {{$user->primary_color}} }
 			@endif
 
 			@if ($section->href == '#contact')
-				#contact .section-intro h5, .contact-info h5 {color: {{$section->pivot->primary_color}} }
-				#contact button.submitform, #contact button.submitform:hover, #contact form .form-field label {background-color: {{$section->pivot->primary_color}} }
-				#contact form .form-field label::after {border-right: 5px solid {{$section->pivot->primary_color}} }
-				#contact input[type="text"]:focus, #contact input[type="password"]:focus, #contact input[type="email"]:focus, #contact textarea:focus {border-color: {{$section->pivot->primary_color}} }
+				#contact .section-intro h5, .contact-info h5 {color: {{$user->primary_color}} }
+				#contact button.submitform, #contact button.submitform:hover, #contact form .form-field label {background-color: {{$user->primary_color}} }
+				#contact form .form-field label::after {border-right: 5px solid {{$user->primary_color}} }
+				#contact input[type="text"]:focus, #contact input[type="password"]:focus, #contact input[type="email"]:focus, #contact textarea:focus {border-color: {{$user->primary_color}} }
 			@endif
 
 			/* IMÁGENES Y COLOR DE FONDO */
 			/* TODO: RESOLVER PROBLEMA CON LAS SECCIONES QUE ADMITEN IMÁGENES Y SE LE QUIERE DEJAR CON COLOR*/
-			@if ($section->pivot->background_color != '')
-				{{$section->href}} {background: {{$section->pivot->background_color}} no-repeat center bottom; }
+			@if ($user->secondary_color != '')
+				{{$section->href}} {background: {{$user->secondary_color}} no-repeat center bottom; }
 			@endif
 			
 			/* Si la sección acepta imagen y fue seteada */
-			@if ($section->allow_image==1 && $section->pivot->background_img != '')
-				{{$section->href}} {background: {{$section->pivot->background_color}} url({{($section->pivot->background_img)}}) no-repeat center bottom;}
+			/* TODO: VER DE DONDE SACAR ESTOS VALORES */
+			/* PONGO ESTE IF PARA QUE NO EXPLOTE EN EL DE ADENTRO*/
+			@if (1==0)
+				@if ($section->allow_image==1 && $section->pivot->background_img != '')
+					{{$section->href}} {background: {{$user->secondary_color}} url({{($section->pivot->background_img)}}) no-repeat center bottom;}
+				@endif
 			@endif
 		@endforeach
 	</style>
@@ -111,14 +115,23 @@
 		<div class="intro-content">
    			<div class="row">
 	   			<div class="col-twelve">
-		   			<h5>{{$user->getComponentValue('Inicio','Intro')}}</h5>
-		   			<h1>{{$user->getComponentValue('Inicio','Título')}}</h1>
+	   				@if ($user->getComponentValue('Inicio','Intro'))
+		   				<h5>{{$user->getComponentValue('Inicio','Intro')}}</h5>
+		   			@endif
+	
+	   				@if ($user->getComponentValue('Inicio','Título'))
+		   				<h1>{{$user->getComponentValue('Inicio','Título')}}</h1>
+		   			@endif
+	
+	   				@if ($user->getComponentValue('Inicio','Subtítulo'))
+			   			<p class="intro-position">
+			   				<span>{{$user->getComponentValue('Inicio','Subtítulo')}}</span>
+			   			</p>
+		   			@endif
 
-		   			<p class="intro-position">
-		   				<span>{{$user->getComponentValue('Inicio','Subtítulo')}}</span>
-		   			</p>
-
-		   			<a class="button stroke smoothscroll" href="#about" title="">{{$user->getComponentValue('Inicio','Botón')}}</a>
+	   				@if ($user->getComponentValue('Inicio','Botón'))
+			   			<a class="button stroke smoothscroll" href="#about" title="">{{$user->getComponentValue('Inicio','Botón')}}</a>
+		   			@endif
 		   		</div>  
 	   		</div>   		 		
 	   	</div> <!-- /intro-content --> 
@@ -137,42 +150,53 @@
     <section id="about">  
 	   	<div class="row section-intro">
 	   		<div class="col-twelve">
-	   			<h5>{{$user->getComponentValue('Sobre mi','Intro')}}</h5>
-	   			<h1>{{$user->getComponentValue('Sobre mi','Titulo')}}</h1>
+   				@if ($user->getComponentValue('Sobre mi','Intro'))
+	   				<h5>{{$user->getComponentValue('Sobre mi','Intro')}}</h5>
+   				@endif
+   				
+   				@if ($user->getComponentValue('Sobre mi','Título'))
+	   				<h1>{{$user->getComponentValue('Sobre mi','Título')}}</h1>
+   				@endif
 
-	   			<div class="intro-info">
-	   				<img src="{{ asset('theme1/'.$user->getComponentValue('Sobre mi','Imagen')) }}" alt="Profile Picture">
-	   				<p class="lead">{{$user->getComponentValue('Sobre mi','Descripción')}}</p>
-	   			</div>   			
+   				@if ($user->getComponentValue('Sobre mi','Descripción'))
+		   			<div class="intro-info">
+		   				<img src="{{ asset('theme1/'.$user->getComponentValue('Sobre mi','Imagen')) }}" alt="Profile Picture">
+		   				<p class="lead">{{$user->getComponentValue('Sobre mi','Descripción')}}</p>
+		   			</div>   			
+   				@endif
 	   		</div>   		
 	   	</div> <!-- /section-intro -->
 
 	   	<div class="row about-content">
 	   		<div class="col-six tab-full">
-	   			<h3>{{$user->getComponentValue('Sobre mi','Intro Perfil')->where('TYPE_ATTRIBUTE_NAME','Título')->first()->VALUE}}</h3>
-	   			<p>{{$user->getComponentValue('Sobre mi','Intro Perfil')->where('TYPE_ATTRIBUTE_NAME','Descripción')->first()->VALUE}}</p>
+	   			@if ($user->getComponentValue('Sobre mi','Intro Perfil'))
+   					<h3>{{$user->getComponentValue('Sobre mi','Intro Perfil')->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE}}</h3>
+	   				<p>{{$user->getComponentValue('Sobre mi','Intro Perfil')->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE}}</p>
+	   			@endif
 
 	   			<ul class="info-list">
 	   				@foreach ($user->getComponentValuesGroup('Sobre mi','Perfil',2) as $campo)
 	   					<li>
-		   					<strong>{{ $campo->where('TYPE_ATTRIBUTE_NAME','Clave')->first()->VALUE }}</strong>
-		   					<span>{{ $campo->where('TYPE_ATTRIBUTE_NAME','Valor')->first()->VALUE }}</span>
+		   					<strong>{{ $campo->where('COMPONENT_TYPE_NAME','Clave')->first()->VALUE }}</strong>
+		   					<span>{{ $campo->where('COMPONENT_TYPE_NAME','Valor')->first()->VALUE }}</span>
 		   				</li>
 	   				@endforeach
 	   			</ul> <!-- /info-list -->
 	   		</div>
 
 	   		<div class="col-six tab-full">
-	   			<h3>{{$user->getComponentValue('Sobre mi','Intro Skills')->where('TYPE_ATTRIBUTE_NAME','Título')->first()->VALUE}}</h3>
-	   			<p>{{$user->getComponentValue('Sobre mi','Intro Skills')->where('TYPE_ATTRIBUTE_NAME','Descripción')->first()->VALUE}}</p>
-				
+	   			@if ($user->getComponentValue('Sobre mi','Intro Skills'))
+	   				<h3>{{$user->getComponentValue('Sobre mi','Intro Skills')->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE}}</h3>
+	   				<p>{{$user->getComponentValue('Sobre mi','Intro Skills')->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE}}</p>
+				@endif
+
 				<ul class="skill-bars">
 	   				@foreach ($user->getComponentValuesGroup('Sobre mi','Skills',2) as $campo)
 					    <li>
-						   	<div class="progress percent{{ $campo->where('TYPE_ATTRIBUTE_NAME','Porcentaje')->first()->VALUE }}">
-						   		<span>{{ $campo->where('TYPE_ATTRIBUTE_NAME','Porcentaje')->first()->VALUE }}%</span>
+						   	<div class="progress percent{{ $campo->where('COMPONENT_TYPE_NAME','Porcentaje')->first()->VALUE }}">
+						   		<span>{{ $campo->where('COMPONENT_TYPE_NAME','Porcentaje')->first()->VALUE }}%</span>
 						   	</div>
-						   	<strong>{{ $campo->where('TYPE_ATTRIBUTE_NAME','Clave')->first()->VALUE }}</strong>
+						   	<strong>{{ $campo->where('COMPONENT_TYPE_NAME','Clave')->first()->VALUE }}</strong>
 						</li>
 	   				@endforeach
 				</ul> <!-- /skill-bars -->		
@@ -180,10 +204,12 @@
 	   	</div>
 
 	   	<div class="row button-section">
-	   		<div class="col-twelve">
-	   			<a href="#contact" title="Contacteme" class="button stroke smoothscroll">Contácteme</a>
-	   			<!--a href="#" title="Descargar CV" class="button button-primary">Descargar CV</a-->
-	   		</div>   		
+   			@if ($user->getComponentValue('Sobre mi','Botón'))
+		   		<div class="col-twelve">
+		   			<a href="#contact" title="Contacteme" class="button stroke smoothscroll">{{$user->getComponentValue('Sobre mi','Botón')}}</a>
+		   			<!--a href="#" title="Descargar CV" class="button button-primary">Descargar CV</a-->
+		   		</div>   		
+   			@endif
 	   	</div>
     </section> <!-- /process-->    
 	@endif

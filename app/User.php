@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
+use TuNegocio\Section;
 
 class User extends Authenticatable
 {
@@ -41,20 +42,27 @@ class User extends Authenticatable
      */
     public function getData()
     {
-        return DB::table('vw_component_attributes_user')->where('user_id',$this->id)->get();
+        return DB::table('vw_component_attributes_user')->where([
+            ['user_id',$this->id],
+            ['visible',1],
+        ])->get();
     }
 
     /**
      * Get componentData for theme that owns the user.
      */
-    public function getComponentValue($section_name, $component_name)
+    public function getComponentValue($section_name, $component_section_name)
     {
         $data = DB::table('vw_component_attributes_user')->where([
-                                                        ['user_id',$this->id],
-                                                        ['section_name',$section_name],
-                                                        ['component_name',$component_name],
-                                                    ])->get();
-        //dd($data);
+            ['user_id',$this->id],
+            ['visible',1],
+            ['section_name',$section_name],
+            ['component_section_name',$component_section_name],
+        ])->get();
+
+        if ($data->count() == 0) {
+            return null;
+        }
         if ($data->count() == 1) {
             return $data->first()->VALUE;
         }
@@ -64,17 +72,27 @@ class User extends Authenticatable
     /**
      * Get componentDataGroup for theme that owns the user .
      */
-    public function getComponentValuesGroup($section_name, $component_name, $cant=null)
+    public function getComponentValuesGroup($section_name, $component_section_name, $cant=null)
     {
         $data = DB::table('vw_component_attributes_user')->where([
-                                                        ['user_id',$this->id],
-                                                        ['section_name',$section_name],
-                                                        ['component_name',$component_name],
-                                                    ])->get();
+            ['user_id',$this->id],
+            ['visible',1],
+            ['section_name',$section_name],
+            ['component_section_name',$component_section_name],
+        ])->get();
+
         if ($cant) {
             return $data->chunk($cant);
         }
         return $data;
+    }
+
+    public function sections()
+    {
+        $auxiliar = $this->componentSections()->where('visible',1)->get()->groupBy('section_id')->toArray();
+        $sections = Section::whereIn('id',array_keys($auxiliar))->get();
+
+        return $sections;
     }
 
     /**
@@ -86,18 +104,18 @@ class User extends Authenticatable
     }
 
     /**
-     * Get the ComponentSectionUserAtributtes for the user.
+     * Get the componentSectionUsers for the section.
      */
-    public function componentSectionsAttributes()
+    public function componentSectionUsers()
     {
-        return $this->hasMany('TuNegocio\ComponentSectionUserAttribute');
+        return $this->hasMany('TuNegocio\ComponentSectionUser');
     }
 
     /**
-     * The sections that belong to the user.
+     * The componentSections that belong to the user.
      */
-    public function sections()
+    public function componentSections()
     {
-        return $this->belongsToMany('TuNegocio\Section')->withPivot('user_id','section_id','primary_color','background_color', 'background_img','visible');
+        return $this->belongsToMany('TuNegocio\ComponentSection','component_section_users')->withPivot('user_id','component_section_id','color','visible');
     }
 }

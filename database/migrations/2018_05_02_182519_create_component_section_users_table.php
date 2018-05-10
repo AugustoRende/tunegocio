@@ -13,14 +13,12 @@ class CreateComponentSectionUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('component_section_user', function (Blueprint $table) {
+        Schema::create('component_section_users', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('component_section_id')->unsigned();
+            $table->foreign('component_section_id')->references('id')->on('component_sections')->onDelete('no action')->onUpdate('no action');
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('no action');
-            $table->integer('section_user_id')->unsigned();
-            $table->foreign('section_user_id')->references('id')->on('section_user')->onDelete('cascade')->onUpdate('no action');
-            $table->integer('component_id')->unsigned();
-            $table->foreign('component_id')->references('id')->on('components')->onDelete('cascade')->onUpdate('no action');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('no action')->onUpdate('no action');
             $table->string('color')->nullable();
             $table->tinyInteger('visible')->default(1);
             $table->timestamps();
@@ -34,6 +32,6 @@ class CreateComponentSectionUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('component_section_user');
+        Schema::dropIfExists('component_section_users');
     }
 }
