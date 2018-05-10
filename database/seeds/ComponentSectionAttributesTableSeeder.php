@@ -49,5 +49,31 @@ class ComponentSectionAttributesTableSeeder extends Seeder
         DB::table($table)->insert(['comp_section_id' => 13,'comp_attribute_id' => 2, 'value' => 'ORACLE']);
         DB::table($table)->insert(['comp_section_id' => 13,'comp_attribute_id' => 3, 'value' => '85']);
         DB::table($table)->insert(['comp_section_id' => 14,'comp_attribute_id' => 1, 'value' => 'CONTACTAME']);
+
+        DB::table($table)->insert(['comp_section_id' => 15,'comp_attribute_id' => 1, 'value' => 'EXPERIENCIAS']);
+        DB::table($table)->insert(['comp_section_id' => 16,'comp_attribute_id' => 1, 'value' => 'Mis Acreditaciones.']);
+        DB::table($table)->insert(['comp_section_id' => 17,'comp_attribute_id' => 1, 'value' => 'A continuación se puede observar la formación que he obtenido tanto en el ámbito académico como en el laboral.']);
+        DB::table($table)->insert(['comp_section_id' => 18,'comp_attribute_id' => 1, 'value' => 'Estudios Realizados']);
+        //ESTUDIOS 1
+        DB::table($table)->insert(['comp_section_id' => 19,'comp_attribute_id' => 6, 'value' => 'Bachiller en Economía y Gestión de las Organizaciones']);
+        DB::table($table)->insert(['comp_section_id' => 19,'comp_attribute_id' => 7, 'value' => 'Escuela Normal N°1 - Mary O. Graham - Argentina, Buenos Aires, La Plata']);
+        DB::table($table)->insert(['comp_section_id' => 19,'comp_attribute_id' => 8, 'value' => 'Enero 2008 - Diciembre 2010']);
+        DB::table($table)->insert(['comp_section_id' => 19,'comp_attribute_id' => 9, 'value' => 'En esta institución pasé gran parte de mi infancia y adolescencia. Sin dudas me queda un gran recuerdo de aquel lugar en el que supe recibir todas las herramientas necesarias para iniciar mi carrera universitaria.']);
+        //ESTUDIOS 2
+        DB::table($table)->insert(['comp_section_id' => 19,'comp_attribute_id' => 6, 'value' => 'Ingeniería en Sistemas de Información']);
+        DB::table($table)->insert(['comp_section_id' => 19,'comp_attribute_id' => 7, 'value' => 'Universidad Tecnológica Nacional - Argentina, Buenos Aires, La Plata']);
+        DB::table($table)->insert(['comp_section_id' => 19,'comp_attribute_id' => 8, 'value' => 'Febrero 2011 - Marzo 2017']);
+        DB::table($table)->insert(['comp_section_id' => 19,'comp_attribute_id' => 9, 'value' => 'Un gran desafío en mi vida. Con altibajos y mucho esfuerzo logré llevar adelante la carrera de grado. Un lugar muy propocio para el crecimiento personal y profesional.']);
+        
+        DB::table($table)->insert(['comp_section_id' => 20,'comp_attribute_id' => 1, 'value' => 'Trabajos']);
+        //TRABAJOS 1
+        DB::table($table)->insert(['comp_section_id' => 21,'comp_attribute_id' => 6, 'value' => 'Desarrollador (C# - .Net)']);
+        DB::table($table)->insert(['comp_section_id' => 21,'comp_attribute_id' => 7, 'value' => 'Accenture - Argentina, Buenos Aires, La Plata']);
+        DB::table($table)->insert(['comp_section_id' => 21,'comp_attribute_id' => 8, 'value' => 'Junio 2014 - Octubre 2014']);
+        DB::table($table)->insert(['comp_section_id' => 21,'comp_attribute_id' => 9, 'value' => 'Mi primer experiencia laboral en el ámbito informático. Una linda pero corta experiencia. Me gustaría haber trabajado un tiempo más en este lugar, pero una mejor oportunidad se cruzó en mi camino y decidí cambiar de rumbo.']);
+
+        // COMPLETAR CON EL RESTO DE LOS TRABAJOS LUEGO
+        
+
     }
 }
