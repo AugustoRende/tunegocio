@@ -30,9 +30,9 @@ class ComponentSectionTableSeeder extends Seeder
         DB::table('component_sections')->insert(['name' => 'Intro', 'component_id' => 1, 'section_id' => 3]);
         DB::table('component_sections')->insert(['name' => 'Título', 'component_id' => 1, 'section_id' => 3]);
         DB::table('component_sections')->insert(['name' => 'Descripción', 'component_id' => 1, 'section_id' => 3]);
-        DB::table('component_sections')->insert(['name' => 'Subtítulo', 'component_id' => 1, 'section_id' => 3]);
+        DB::table('component_sections')->insert(['name' => 'Subtítulo1', 'component_id' => 1, 'section_id' => 3]);
         DB::table('component_sections')->insert(['name' => 'Estudios', 'component_id' => 4, 'section_id' => 3]);
-        DB::table('component_sections')->insert(['name' => 'Subtítulo', 'component_id' => 1, 'section_id' => 3]);
+        DB::table('component_sections')->insert(['name' => 'Subtítulo2', 'component_id' => 1, 'section_id' => 3]);
         DB::table('component_sections')->insert(['name' => 'Trabajos', 'component_id' => 4, 'section_id' => 3]);
 
         DB::table('component_sections')->insert(['name' => 'Intro', 'component_id' => 1, 'section_id' => 4]);

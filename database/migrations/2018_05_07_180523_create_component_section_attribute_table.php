@@ -19,7 +19,7 @@ class CreateComponentSectionAttributeTable extends Migration
             $table->foreign('comp_section_id')->references('id')->on('component_sections')->onDelete('no action')->onUpdate('no action');
             $table->integer('comp_attribute_id')->unsigned();
             $table->foreign('comp_attribute_id')->references('id')->on('component_attributes')->onDelete('no action')->onUpdate('no action');
-            $table->string('value');
+            $table->string('value',1000);
             $table->timestamps();
         });
     }
