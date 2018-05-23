@@ -104,9 +104,9 @@
 						@endforeach
 					</ul>
 				</nav>    		
-   			</div> <!-- /top-bar --> 
-   		</div> <!-- /row --> 		
-    </header> <!-- /header -->
+   			</div> 
+   		</div> 		
+    </header>
 
 	<!-- intro section ================================================== -->
 	@if ($sections->contains('href','#intro'))
@@ -134,14 +134,14 @@
 		   			@endif
 		   		</div>  
 	   		</div>   		 		
-	   	</div> <!-- /intro-content --> 
+	   	</div>
 
    		<ul class="intro-social">
    			@foreach ($user->getComponentValuesGroup('Inicio','Red Social') as $social)
          		<li><a href="{{$social->VALUE}}" target="_blank"><i class="fa fa-{{explode('.', $social->VALUE)[1]}}"></i></a></li>
          	@endforeach
-      	</ul> <!-- /intro-social -->      	
-	</section> <!-- /intro -->
+      	</ul>
+	</section>
 	@endif
 
 
@@ -395,81 +395,56 @@
 	   				<h1>{{$user->getComponentValue('Contacto','Título')}}</h1>
    				@endif
 	   		</div> 
-	   	</div> <!-- /section-intro -->
+	   	</div>
 
 	   	<div class="row contact-form">
 	   		<div class="col-twelve">
-	            <!-- form -->
 	            <form name="contactForm" id="contactForm" method="post" action="">
 	      			<fieldset>
-	                  	<div class="form-field">
-	 					    <input name="contactName" type="text" id="contactName" placeholder="Nombre" value="" minlength="2" required="">
-	                  	</div>
-	                  	<div class="form-field">
-		      			   	<input name="contactEmail" type="email" id="contactEmail" placeholder="Email" value="" required="">
-		               	</div>
-	                  	<div class="form-field">
-		     				<input name="contactSubject" type="text" id="contactSubject" placeholder="Asunto" value="">
-		               	</div>                       
-	                  	<div class="form-field">
-		                 	<textarea name="contactMessage" id="contactMessage" placeholder="Mensaje" rows="10" cols="50" required=""></textarea>
-		               	</div>                      
-	                 	<div class="form-field">
-	                     	<button class="submitform">Enviar</button>
-	                     	<div id="submit-loader">
-	                        	<div class="text-loader">Enviando...</div>                             
-	       				      		<div class="s-loader">
-									  	<div class="bounce1"></div>
-									  	<div class="bounce2"></div>
-									  	<div class="bounce3"></div>
+        				@foreach ($user->getComponentValuesGroup('Contacto','Formulario') as $campo)
+	                  		<div class="form-field">
+	        					@if ($campo->COMPONENT_TYPE_NAME == 'Mensaje')
+		                 			<textarea name="contact{{$campo->VALUE}}" id="contact{{$campo->VALUE}}" placeholder="{{$campo->VALUE}}" rows="10" cols="50" required=""></textarea>
+	        					@endif
+	        					@if ($campo->COMPONENT_TYPE_NAME == 'Botón')
+	        						<button class="submitform">{{$campo->VALUE}}</button>
+			                     	<div id="submit-loader">
+			                        	<div class="text-loader">Enviando...</div>                             
+		       				      		<div class="s-loader">
+										  	<div class="bounce1"></div>
+										  	<div class="bounce2"></div>
+										  	<div class="bounce3"></div>
+										</div>
 									</div>
-								</div>
-	                    </div>
+	        					@endif
+	        					@if ($campo->COMPONENT_TYPE_NAME != 'Mensaje' && $campo->COMPONENT_TYPE_NAME != 'Botón')
+			 					    <input name="contact{{$campo->VALUE}}" type="text" id="contact{{$campo->VALUE}}" placeholder="{{$campo->VALUE}}" value="" minlength="2" required="">
+	        					@endif
+	                  		</div>
+        				@endforeach
 	      			</fieldset>
-	      		</form> <!-- Form End -->
+	      		</form>
 
-	            <!-- contact-warning -->
 	            <div id="message-warning"></div>            
-	            <!-- contact-success -->
 	      		<div id="message-success">
 	               <i class="fa fa-check"></i>Su mensaje fue enviado, Muchas Gracias!<br>
 	      		</div>
-	        </div> <!-- /col-twelve -->
-	   	</div> <!-- /contact-form -->
+	        </div>
+	   	</div>
 
 	   	<div class="row contact-info">
-	   		<div class="col-four tab-full">
+			@foreach ($user->getComponentValuesGroup('Contacto','Info',3) as $campo)
+				<div class="col-four tab-full">
 	   			<div class="icon">
-	   				<i class="icon-pin"></i>
+	   				<i class="{{ $campo->where('COMPONENT_TYPE_NAME','Icono')->first()->VALUE }}"></i>
 	   			</div>
 
-	   			<h5>Dónde me encuentro</h5>
-	   			<p>
-	            	La Plata 1900,<br>
-	            	Buenos Aires,<br>
-	            	Argentina.
-	            </p>
+	   			<h5>{{ $campo->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE }}</h5>
+	   			<p>{{ $campo->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE }}</p>
 	   		</div>
-
-	   		<div class="col-four tab-full collapse">
-	   			<div class="icon">
-	   				<i class="icon-mail"></i>
-	   			</div>
-
-	   			<h5>Enviame un email a</h5>
-	   			<p>augustorendegiacomelli@gmail.com</p>
-	   		</div>
-
-	   		<div class="col-four tab-full">
-	   			<div class="icon">
-	   				<i class="icon-phone"></i>
-	   			</div>
-
-	   			<h5>Llamame al</h5>
-	   			<p>Mobile: (+54) 9 221 435 3738</p>
-	   		</div>
-	   	</div> <!-- /contact-info -->
-	</section> <!-- /contact -->
+			@endforeach
+	   	</div>
+	</section>
 	@endif
 
 
@@ -479,8 +454,9 @@
      	<div class="row">
      		<div class="col-six tab-full pull-right social">
      			<ul class="footer-social">        
-			      <li><a href="https://www.facebook.com/augustorendegiacomelli" target="_blank"><i class="fa fa-facebook"></i></a></li>
-			      <li><a href="https://www.linkedin.com/in/augusto-rende-giacomelli" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+     				@foreach ($user->getComponentValuesGroup('Inicio','Red Social') as $social)
+		         		<li><a href="{{$social->VALUE}}" target="_blank"><i class="fa fa-{{explode('.', $social->VALUE)[1]}}"></i></a></li>
+		         	@endforeach
 			   </ul> 
 	        </div>
 

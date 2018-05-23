@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Database\Seeder;
@@ -116,19 +117,19 @@ class ComponentSectionAttributesTableSeeder extends Seeder
         DB::table($table)->insert(['comp_section_id' => 24,'comp_attribute_id' => 12, 'value' => 'Desde chico me sentí atraído por la música, y siempre tuve ganas de poder tocarla yo mismo. El año pasado pude hacer un espacio en mi día a día para comenzar a tocar el piano. Todavía soy un principiante, pero de a poco iré mejorando.']);
 
         //SERVICIOS
-        DB::table($table)->insert(['comp_section_id' => 25,'comp_attribute_id' => 1, 'value' => 'MIS HOBBIES']);
-        DB::table($table)->insert(['comp_section_id' => 26,'comp_attribute_id' => 1, 'value' => 'Algo de lo que me apasiona.']);
+        DB::table($table)->insert(['comp_section_id' => 25,'comp_attribute_id' => 1, 'value' => 'SERVICIOS']);
+        DB::table($table)->insert(['comp_section_id' => 26,'comp_attribute_id' => 1, 'value' => 'Qué puedo hacer por vos?']);
         //SERVICIO 1
         DB::table($table)->insert(['comp_section_id' => 27,'comp_attribute_id' => 13, 'value' => 'icon-earth']);
         DB::table($table)->insert(['comp_section_id' => 27,'comp_attribute_id' => 14, 'value' => 'Soluciones de Software']);
         DB::table($table)->insert(['comp_section_id' => 27,'comp_attribute_id' => 15, 'value' => 'Descripcion']);
         //SERVICIO 2
         DB::table($table)->insert(['comp_section_id' => 27,'comp_attribute_id' => 13, 'value' => 'icon-window']);
-        DB::table($table)->insert(['comp_section_id' => 27,'comp_attribute_id' => 14, 'value' => 'Titulo']);
+        DB::table($table)->insert(['comp_section_id' => 27,'comp_attribute_id' => 14, 'value' => 'Desarrollo Web']);
         DB::table($table)->insert(['comp_section_id' => 27,'comp_attribute_id' => 15, 'value' => 'Descripcion']);
         //SERVICIO 3
         DB::table($table)->insert(['comp_section_id' => 27,'comp_attribute_id' => 13, 'value' => 'fa fa-plug']);
-        DB::table($table)->insert(['comp_section_id' => 27,'comp_attribute_id' => 14, 'value' => 'Desarrollo Web']);
+        DB::table($table)->insert(['comp_section_id' => 27,'comp_attribute_id' => 14, 'value' => 'DevOps']);
         DB::table($table)->insert(['comp_section_id' => 27,'comp_attribute_id' => 15, 'value' => 'Descripcion']);
         //SERVICIO 4
         DB::table($table)->insert(['comp_section_id' => 27,'comp_attribute_id' => 13, 'value' => 'fa fa-database']);
@@ -142,6 +143,25 @@ class ComponentSectionAttributesTableSeeder extends Seeder
         //CONTACTO
         DB::table($table)->insert(['comp_section_id' => 28,'comp_attribute_id' => 1, 'value' => 'CONTACTO']);
         DB::table($table)->insert(['comp_section_id' => 29,'comp_attribute_id' => 1, 'value' => 'Estoy esperando a que me contactes.']);
-        //TODO: TERMINAR
+        //FORMULARIO
+        DB::table($table)->insert(['comp_section_id' => 30,'comp_attribute_id' => 16, 'value' => 'Nombre']);
+        DB::table($table)->insert(['comp_section_id' => 30,'comp_attribute_id' => 17, 'value' => 'Email']);
+        DB::table($table)->insert(['comp_section_id' => 30,'comp_attribute_id' => 18, 'value' => 'Asunto']);
+        DB::table($table)->insert(['comp_section_id' => 30,'comp_attribute_id' => 19, 'value' => 'Mensaje']);
+        DB::table($table)->insert(['comp_section_id' => 30,'comp_attribute_id' => 20, 'value' => 'ENVIAR']);
+        //INFORMACIÓN 1
+        DB::table($table)->insert(['comp_section_id' => 31,'comp_attribute_id' => 13, 'value' => 'icon-pin']);
+        DB::table($table)->insert(['comp_section_id' => 31,'comp_attribute_id' => 14, 'value' => 'Dónde me encuentro']);
+        DB::table($table)->insert(['comp_section_id' => 31,'comp_attribute_id' => 15, 'value' => 'La Plata 1900, Buenos Aires, Argentina.']);
+        //INFORMACIÓN 2
+        DB::table($table)->insert(['comp_section_id' => 31,'comp_attribute_id' => 13, 'value' => 'icon-mail']);
+        DB::table($table)->insert(['comp_section_id' => 31,'comp_attribute_id' => 14, 'value' => 'Enviame un email a']);
+        DB::table($table)->insert(['comp_section_id' => 31,'comp_attribute_id' => 15, 'value' => 'augustorendegiacomelli@gmail.com']);
+        //INFORMACIÓN 3
+        DB::table($table)->insert(['comp_section_id' => 31,'comp_attribute_id' => 13, 'value' => 'icon-phone']);
+        DB::table($table)->insert(['comp_section_id' => 31,'comp_attribute_id' => 14, 'value' => 'Llamame al']);
+        DB::table($table)->insert(['comp_section_id' => 31,'comp_attribute_id' => 15, 'value' => 'Mobile: (+54) 9 221 435 3738']);
+        
+
     }
 }
