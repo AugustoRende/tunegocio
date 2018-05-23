@@ -19,7 +19,7 @@ class ThemesTableSeeder extends Seeder
 
         Theme::create([
             'code' => 'theme2',
-            'name' => 'Peluquería',
+            'name' => 'InfinIT',
         ]);
     }
 }
