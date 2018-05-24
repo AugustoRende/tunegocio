@@ -1,5 +1,7 @@
 {
     "/theme1/app.js": "/theme1/app.js",
     "/theme1/main.js": "/theme1/main.js",
-    "/theme1/app.css": "/theme1/app.css"
+    "/theme1/app.css": "/theme1/app.css",
+    "/theme2/app.js": "/theme2/app.js",
+    "/theme2/app.css": "/theme2/app.css"
 }
