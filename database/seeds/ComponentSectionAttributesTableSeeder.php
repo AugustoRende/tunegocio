@@ -13,6 +13,7 @@ class ComponentSectionAttributesTableSeeder extends Seeder
     public function run()
     {
         $table = 'component_section_attribute';
+        //THEME 1
         //INTRO
         DB::table($table)->insert(['comp_section_id' => 1,'comp_attribute_id' => 1, 'value' => 'HOLA A TODOS!']);
         DB::table($table)->insert(['comp_section_id' => 2,'comp_attribute_id' => 1, 'value' => 'Soy Augusto Rende Giacomelli.']);
@@ -161,6 +162,10 @@ class ComponentSectionAttributesTableSeeder extends Seeder
         DB::table($table)->insert(['comp_section_id' => 31,'comp_attribute_id' => 13, 'value' => 'icon-phone']);
         DB::table($table)->insert(['comp_section_id' => 31,'comp_attribute_id' => 14, 'value' => 'Llamame al']);
         DB::table($table)->insert(['comp_section_id' => 31,'comp_attribute_id' => 15, 'value' => 'Mobile: (+54) 9 221 435 3738']);
+        
+
+
+        //THEME 2
         
 
     }

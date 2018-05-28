@@ -453,7 +453,8 @@
     <footer>
      	<div class="row">
      		<div class="col-six tab-full pull-right social">
-     			<ul class="footer-social">        
+     			<ul class="footer-social">
+     				{{-- //TODO: CABLEAR LOS DATOS DE INFINIT --}}
      				@foreach ($user->getComponentValuesGroup('Inicio','Red Social') as $social)
 		         		<li><a href="{{$social->VALUE}}" target="_blank"><i class="fa fa-{{explode('.', $social->VALUE)[1]}}"></i></a></li>
 		         	@endforeach

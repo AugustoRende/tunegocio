@@ -21,7 +21,9 @@ class ComponentsTableSeeder extends Seeder
         Component::create(['name' => 'Icono']); //6
         Component::create(['name' => 'Formulario']); //7
         Component::create(['name' => 'Intro']); //8
-        
+        Component::create(['name' => 'Plan']); //9
+        Component::create(['name' => 'Team']); //10
+
         ComponentAttribute::create(['name' => 'Texto', 'type' => 'TEXT', 'component_id' => 1]); //1
         ComponentAttribute::create(['name' => 'Clave', 'type' => 'TEXT', 'component_id' => 2]); //2
         ComponentAttribute::create(['name' => 'Porcentaje', 'type' => 'NUMBER', 'component_id' => 2]); //3
@@ -44,6 +46,17 @@ class ComponentsTableSeeder extends Seeder
         ComponentAttribute::create(['name' => 'Botón', 'type' => 'TEXT', 'component_id' => 7]); //20
         ComponentAttribute::create(['name' => 'Título', 'type' => 'TEXT', 'component_id' => 8]); //21
         ComponentAttribute::create(['name' => 'Descripción', 'type' => 'TEXT', 'component_id' => 8]); //22
-
+        ComponentAttribute::create(['name' => 'Título', 'type' => 'TEXT', 'component_id' => 9]); //23
+        ComponentAttribute::create(['name' => 'Monto', 'type' => 'TEXT', 'component_id' => 9]); //24
+        ComponentAttribute::create(['name' => 'Descripción', 'type' => 'TEXT', 'component_id' => 9]); //25
+        ComponentAttribute::create(['name' => 'Botón', 'type' => 'TEXT', 'component_id' => 9]); //26
+        ComponentAttribute::create(['name' => 'Imagen', 'type' => 'TEXT', 'component_id' => 10]); //27
+        ComponentAttribute::create(['name' => 'Nombre', 'type' => 'TEXT', 'component_id' => 10]); //28
+        ComponentAttribute::create(['name' => 'Puesto', 'type' => 'TEXT', 'component_id' => 10]); //29
+        ComponentAttribute::create(['name' => 'Red Social 1', 'type' => 'TEXT', 'component_id' => 10]); //30
+        ComponentAttribute::create(['name' => 'Red Social 2', 'type' => 'TEXT', 'component_id' => 10]); //31
+        ComponentAttribute::create(['name' => 'Red Social 3', 'type' => 'TEXT', 'component_id' => 10]); //32
+        ComponentAttribute::create(['name' => 'Red Social 4', 'type' => 'TEXT', 'component_id' => 10]); //33
+        ComponentAttribute::create(['name' => 'Red Social 5', 'type' => 'TEXT', 'component_id' => 10]); //34
     }
 }

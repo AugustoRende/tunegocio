@@ -14,7 +14,7 @@
     </head>
     <body>
         <!-- Header Section Start -->
-        <header id="hero-area" data-stellar-background-ratio="0.5">    
+        <header id="home" data-stellar-background-ratio="0.5">    
             <!-- Navbar Start -->
             <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar indigo">
                 <div class="container">
@@ -28,7 +28,7 @@
                     <div class="collapse navbar-collapse" id="main-navbar">
                         <ul class="navbar-nav mr-auto w-100 justify-content-end">
                             <li class="nav-item">
-                                <a class="nav-link page-scroll" href="#hero-area">Home</a>
+                                <a class="nav-link page-scroll" href="#home">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link page-scroll" href="#services">Services</a>
@@ -58,7 +58,7 @@
                 <!-- Mobile Menu Start -->
                 <ul class="mobile-menu">
                     <li>
-                        <a class="page-scroll" href="#hero-area">Home</a>
+                        <a class="page-scroll" href="#home">Home</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#services">Services</a>
