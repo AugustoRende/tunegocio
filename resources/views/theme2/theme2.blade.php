@@ -13,8 +13,8 @@
         <link rel="stylesheet" href="{{ asset('theme2/app.css') }}">  
     </head>
     <body>
-        <!-- Header Section Start -->
-        <header id="home" data-stellar-background-ratio="0.5">    
+        @if ($sections->contains('href','#hero-area'))
+        <header id="hero-area" data-stellar-background-ratio="0.5">    
             <!-- Navbar Start -->
             <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar indigo">
                 <div class="container">
@@ -46,9 +46,6 @@
                                 <a class="nav-link page-scroll" href="#team">Team</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link page-scroll" href="#blog">Blog</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link page-scroll" href="#contact">Contact</a>
                             </li>
                         </ul>
@@ -75,9 +72,6 @@
                     <li>
                         <a class="page-scroll" href="#team">Team</a>
                     </li>
-                    <li >
-                        <a class="page-scroll" href="#blog">Blog</a>
-                    </li>
                     <li>
                         <a class="page-scroll" href="#contact">Contact</a>
                     </li>
@@ -99,9 +93,9 @@
                 </div> 
             </div>           
         </header>
-        <!-- Header Section End --> 
+        @endif
 
-        <!-- Services Section Start -->
+        @if ($sections->contains('href','#services'))
         <section id="services" class="section">
             <div class="container">
                 <div class="section-header">          
@@ -140,9 +134,9 @@
                 </div>
             </div>
         </section>
-        <!-- Services Section End -->
+        @endif
 
-        <!-- Features Section Start -->
+        @if ($sections->contains('href','#features'))
         <section id="features" class="section" data-stellar-background-ratio="0.2">
             <div class="container">
                 <div class="section-header">          
@@ -201,9 +195,9 @@
                 </div>
             </div>
         </section>
-        <!-- Features Section End -->    
+        @endif
 
-        <!-- Portfolio Section -->
+        @if ($sections->contains('href','#portfolios'))
         <section id="portfolios" class="section">
             <!-- Container Starts -->
             <div class="container">
@@ -291,9 +285,7 @@
             </div>
             <!-- Container Ends -->
         </section>
-        <!-- Portfolio Section Ends --> 
 
-        <!-- Start Video promo Section -->
         <section class="video-promo section">
             <div class="container">
                 <div class="row justify-content-center">
@@ -307,9 +299,9 @@
                 </div>
             </div>
         </section>
-        <!-- End Video Promo Section -->
+        @endif
 
-        <!-- Start Pricing Table Section -->
+        @if ($sections->contains('href','#pricing'))
         <div id="pricing" class="section pricing-section">
             <div class="container">
                 <div class="section-header">          
@@ -375,9 +367,6 @@
                 </div>
             </div>
         </div>
-        <!-- End Pricing Table Section -->
-
-        <!-- Counter Section Start -->
         <div class="counters section" data-stellar-background-ratio="0.5">
             <div class="container">
                 <div class="row"> 
@@ -428,9 +417,9 @@
                 </div>
             </div>
         </div>
-        <!-- Counter Section End -->
+        @endif
 
-        <!-- Team section Start -->
+        @if ($sections->contains('href','#team'))
         <section id="team" class="section">
             <div class="container">
                 <div class="section-header">          
@@ -510,9 +499,6 @@
                 </div>
             </div>
         </section>
-        <!-- Team section End -->
-
-        <!-- testimonial Section Start -->
         <div id="testimonial" class="section" data-stellar-background-ratio="0.1">
             <div class="container">
                 <div class="row justify-content-md-center">
@@ -555,86 +541,9 @@
                 </div>        
             </div>
         </div>
-        <!-- testimonial Section Start -->
+        @endif
 
-        <!-- Blog Section -->
-        <section id="blog" class="section">
-            <!-- Container Starts -->
-            <div class="container">
-                <div class="section-header">          
-                    <h2 class="section-title">Recent Blog</h2>
-                    <hr class="lines">
-                    <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item">
-                        <!-- Blog Item Starts -->
-                        <div class="blog-item-wrapper">
-                            <div class="blog-item-img">
-                                <a href="single-post.html">
-                                    <img src="{{ asset('theme2/images/blog/img1.jpg') }}" alt="">
-                                </a>                
-                            </div>
-                            <div class="blog-item-text"> 
-                                <div class="meta-tags">
-                                    <span class="date"><i class="lnr  lnr-clock"></i>2 Days Ago</span>
-                                    <span class="comments"><a href="#"><i class="lnr lnr-bubble"></i> 24 Comments</a></span>
-                                </div>
-                                <h3><a href="single-post.html">How often should you tweet?</a></h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>
-                                <a href="single-post.html" class="btn-rm">Read More <i class="lnr lnr-arrow-right"></i></a>
-                            </div>
-                        </div>
-                        <!-- Blog Item Wrapper Ends-->
-                    </div>
-
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item">
-                        <!-- Blog Item Starts -->
-                        <div class="blog-item-wrapper">
-                            <div class="blog-item-img">
-                                <a href="single-post.html">
-                                  <img src="{{ asset('theme2/images/blog/img2.jpg') }}" alt="">
-                                </a>                
-                            </div>
-                            <div class="blog-item-text"> 
-                                <div class="meta-tags">
-                                    <span class="date"><i class="lnr  lnr-clock"></i>2 Days Ago</span>
-                                    <span class="comments"><a href="#"><i class="lnr lnr-bubble"></i> 24 Comments</a></span>
-                                </div>
-                                <h3><a href="single-post.html">Content is still king</a></h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>
-                                <a href="single-post.html" class="btn-rm">Read More <i class="lnr lnr-arrow-right"></i></a>
-                            </div>
-                        </div>
-                        <!-- Blog Item Wrapper Ends-->
-                    </div>
-
-                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 blog-item">
-                        <!-- Blog Item Starts -->
-                        <div class="blog-item-wrapper">
-                            <div class="blog-item-img">
-                                <a href="single-post.html">
-                                    <img src="{{ asset('theme2/images/blog/img3.jpg') }}" alt="">
-                                </a>                
-                            </div>
-                            <div class="blog-item-text"> 
-                                <div class="meta-tags">
-                                    <span class="date"><i class="lnr  lnr-clock"></i>2 Days Ago</span>
-                                    <span class="comments"><a href="#"><i class="lnr lnr-bubble"></i> 24 Comments</a></span>
-                                </div> 
-                                <h3><a href="single-post.html">Social media at work</a></h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..</p>
-                                <a href="single-post.html" class="btn-rm">Read More <i class="lnr lnr-arrow-right"></i></a>
-                            </div>
-                        </div>
-                        <!-- Blog Item Wrapper Ends-->
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- blog Section End -->
-
-        <!-- Contact Section Start -->
+        @if ($sections->contains('href','#contact'))
         <section id="contact" class="section" data-stellar-background-ratio="-0.2">      
             <div class="contact-form">
                 <div class="container">
@@ -693,13 +602,12 @@
                 </div>
             </div>           
         </section>
-        <!-- Contact Section End -->
+        @endif
 
         <!-- Footer Section Start -->
         <footer>          
             <div class="container">
                 <div class="row">
-                    <!-- Footer Links -->
                     <div class="col-lg-6 col-sm-6 col-xs-12">
                         <ul class="footer-links">
                             <li>
@@ -738,28 +646,6 @@
             </div>
         </div>     
 
-        <!-- jQuery first, then Tether, then Bootstrap JS. -->
         <script src="{{ asset('theme2/app.js') }}"></script>
-        <!-- <script src="js/jquery-min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.mixitup.js"></script>
-        <script src="js/nivo-lightbox.js"></script>
-        <script src="js/owl.carousel.js"></script>    
-        <script src="js/jquery.stellar.min.js"></script>    
-        <script src="js/jquery.nav.js"></script>    
-        <script src="js/scrolling-nav.js"></script>    
-        <script src="js/jquery.easing.min.js"></script>    
-        <script src="js/smoothscroll.js"></script>    
-        <script src="js/jquery.slicknav.js"></script>     
-        <script src="js/wow.js"></script>   
-        <script src="js/jquery.vide.js"></script>
-        <script src="js/jquery.counterup.min.js"></script>    
-        <script src="js/jquery.magnific-popup.min.js"></script>    
-        <script src="js/waypoints.min.js"></script>    
-        <script src="js/form-validator.min.js"></script>
-        <script src="js/contact-form-script.js"></script>   
-        <script src="js/main.js"></script>
- -->
     </body>
 </html>

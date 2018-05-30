@@ -51,7 +51,7 @@ class ComponentSectionTableSeeder extends Seeder
 
 
         // THEME 2
-        DB::table('component_sections')->insert(['name' => 'Intro', 'component_id' => 8, 'section_id' => 7]);
+        DB::table('component_sections')->insert(['name' => 'Intro', 'component_id' => 8, 'section_id' => 7]); //32
         DB::table('component_sections')->insert(['name' => 'Botón', 'component_id' => 1, 'section_id' => 7]);
         
         DB::table('component_sections')->insert(['name' => 'Intro', 'component_id' => 8, 'section_id' => 8]);
@@ -63,21 +63,20 @@ class ComponentSectionTableSeeder extends Seeder
 
         DB::table('component_sections')->insert(['name' => 'Intro', 'component_id' => 8, 'section_id' => 10]);
         DB::table('component_sections')->insert(['name' => 'Galería', 'component_id' => 5, 'section_id' => 10]);
+        DB::table('component_sections')->insert(['name' => 'Intro2', 'component_id' => 8, 'section_id' => 10]);
+        DB::table('component_sections')->insert(['name' => 'Video', 'component_id' => 1, 'section_id' => 10]);
 
         DB::table('component_sections')->insert(['name' => 'Intro', 'component_id' => 8, 'section_id' => 11]);
-        DB::table('component_sections')->insert(['name' => 'Video', 'component_id' => 1, 'section_id' => 11]);
+        DB::table('component_sections')->insert(['name' => 'Planes', 'component_id' => 9, 'section_id' => 11]);
+        DB::table('component_sections')->insert(['name' => 'Info', 'component_id' => 6, 'section_id' => 11]);
 
         DB::table('component_sections')->insert(['name' => 'Intro', 'component_id' => 8, 'section_id' => 12]);
-        DB::table('component_sections')->insert(['name' => 'Planes', 'component_id' => 9, 'section_id' => 12]);
-        DB::table('component_sections')->insert(['name' => 'Info', 'component_id' => 6, 'section_id' => 12]);
-
-        DB::table('component_sections')->insert(['name' => 'Intro', 'component_id' => 8, 'section_id' => 13]);
-        DB::table('component_sections')->insert(['name' => 'Equipo', 'component_id' => 10, 'section_id' => 13]);
+        DB::table('component_sections')->insert(['name' => 'Equipo', 'component_id' => 10, 'section_id' => 12]);
         
-        DB::table('component_sections')->insert(['name' => 'Título', 'component_id' => 1, 'section_id' => 14]);
-        DB::table('component_sections')->insert(['name' => 'Dirección', 'component_id' => 1, 'section_id' => 14]);
-        DB::table('component_sections')->insert(['name' => 'Teléfono', 'component_id' => 1, 'section_id' => 14]);
-        DB::table('component_sections')->insert(['name' => 'Email', 'component_id' => 1, 'section_id' => 14]);
-        DB::table('component_sections')->insert(['name' => 'Formulario', 'component_id' => 7, 'section_id' => 14]);
+        DB::table('component_sections')->insert(['name' => 'Título', 'component_id' => 1, 'section_id' => 13]);
+        DB::table('component_sections')->insert(['name' => 'Dirección', 'component_id' => 1, 'section_id' => 13]);
+        DB::table('component_sections')->insert(['name' => 'Teléfono', 'component_id' => 1, 'section_id' => 13]);
+        DB::table('component_sections')->insert(['name' => 'Email', 'component_id' => 1, 'section_id' => 13]);
+        DB::table('component_sections')->insert(['name' => 'Formulario', 'component_id' => 7, 'section_id' => 13]);
     }
 }

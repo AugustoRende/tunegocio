@@ -166,7 +166,149 @@ class ComponentSectionAttributesTableSeeder extends Seeder
 
 
         //THEME 2
-        
+        //HOME
+        DB::table($table)->insert(['comp_section_id' => 32,'comp_attribute_id' => 21, 'value' => 'Mate - Free Parallax']);
+        DB::table($table)->insert(['comp_section_id' => 32,'comp_attribute_id' => 22, 'value' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.']);
+        DB::table($table)->insert(['comp_section_id' => 33,'comp_attribute_id' => 1, 'value' => 'Download']);
+
+        //SERVICES
+        DB::table($table)->insert(['comp_section_id' => 34,'comp_attribute_id' => 21, 'value' => 'OUR SERVICES']);
+        DB::table($table)->insert(['comp_section_id' => 34,'comp_attribute_id' => 22, 'value' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! 
+Lorem ipsum dolor sit amet, consectetur.']);
+        DB::table($table)->insert(['comp_section_id' => 35,'comp_attribute_id' => 13, 'value' => 'pencil']);
+        DB::table($table)->insert(['comp_section_id' => 35,'comp_attribute_id' => 14, 'value' => 'Content Writing']);
+        DB::table($table)->insert(['comp_section_id' => 35,'comp_attribute_id' => 15, 'value' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.']);
+        DB::table($table)->insert(['comp_section_id' => 35,'comp_attribute_id' => 13, 'value' => 'code']);
+        DB::table($table)->insert(['comp_section_id' => 35,'comp_attribute_id' => 14, 'value' => 'Web Development']);
+        DB::table($table)->insert(['comp_section_id' => 35,'comp_attribute_id' => 15, 'value' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.']);
+        DB::table($table)->insert(['comp_section_id' => 35,'comp_attribute_id' => 13, 'value' => 'mustache']);
+        DB::table($table)->insert(['comp_section_id' => 35,'comp_attribute_id' => 14, 'value' => 'Business Consultancy']);
+        DB::table($table)->insert(['comp_section_id' => 35,'comp_attribute_id' => 15, 'value' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.']);
+
+        //FEATURES
+        DB::table($table)->insert(['comp_section_id' => 36,'comp_attribute_id' => 21, 'value' => 'SOME FEATURES']);
+        DB::table($table)->insert(['comp_section_id' => 36,'comp_attribute_id' => 22, 'value' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! 
+Lorem ipsum dolor sit amet, consectetur.']);
+        DB::table($table)->insert(['comp_section_id' => 37,'comp_attribute_id' => 13, 'value' => 'rocket']);
+        DB::table($table)->insert(['comp_section_id' => 37,'comp_attribute_id' => 14, 'value' => 'BOOTSTRAP 4 BASED']);
+        DB::table($table)->insert(['comp_section_id' => 37,'comp_attribute_id' => 15, 'value' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.']);
+        DB::table($table)->insert(['comp_section_id' => 37,'comp_attribute_id' => 13, 'value' => 'laptop-phone']);
+        DB::table($table)->insert(['comp_section_id' => 37,'comp_attribute_id' => 14, 'value' => 'FULLY RESPONSIVE']);
+        DB::table($table)->insert(['comp_section_id' => 37,'comp_attribute_id' => 15, 'value' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.']);
+        DB::table($table)->insert(['comp_section_id' => 37,'comp_attribute_id' => 13, 'value' => 'layers']);
+        DB::table($table)->insert(['comp_section_id' => 37,'comp_attribute_id' => 14, 'value' => 'PARALLAX BACKGROUND']);
+        DB::table($table)->insert(['comp_section_id' => 37,'comp_attribute_id' => 15, 'value' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.']);
+        DB::table($table)->insert(['comp_section_id' => 37,'comp_attribute_id' => 13, 'value' => 'cog']);
+        DB::table($table)->insert(['comp_section_id' => 37,'comp_attribute_id' => 14, 'value' => 'EASY TO CUSTOMIZE']);
+        DB::table($table)->insert(['comp_section_id' => 37,'comp_attribute_id' => 15, 'value' => 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.']);
+        DB::table($table)->insert(['comp_section_id' => 38,'comp_attribute_id' => 1, 'value' => 'images/features/feature.png']);
+
+        //PORTFOLIO
+        DB::table($table)->insert(['comp_section_id' => 39,'comp_attribute_id' => 21, 'value' => 'OUR PORTFOLIO']);
+        DB::table($table)->insert(['comp_section_id' => 39,'comp_attribute_id' => 22, 'value' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! 
+Lorem ipsum dolor sit amet, consectetur.']);
+        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 10, 'value' => 'images/portfolio/img1.jpg']);
+        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 11, 'value' => 'development print']);
+        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 12, 'value' => 'descripción']);
+        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 10, 'value' => 'images/portfolio/img2.jpg']);
+        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 11, 'value' => 'design print']);
+        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 12, 'value' => 'descripción']);
+        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 10, 'value' => 'images/portfolio/img3.jpg']);
+        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 11, 'value' => 'development']);
+        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 12, 'value' => 'descripción']);
+        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 10, 'value' => 'images/portfolio/img4.jpg']);
+        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 11, 'value' => 'development design']);
+        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 12, 'value' => 'descripción']);
+        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 10, 'value' => 'images/portfolio/img5.jpg']);
+        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 11, 'value' => 'development']);
+        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 12, 'value' => 'descripción']);
+        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 10, 'value' => 'images/portfolio/img6.jpg']);
+        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 11, 'value' => 'print design']);
+        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 12, 'value' => 'descripción']);
+        DB::table($table)->insert(['comp_section_id' => 41,'comp_attribute_id' => 21, 'value' => 'WATCH OUR INTRO VIDEO']);
+        DB::table($table)->insert(['comp_section_id' => 41,'comp_attribute_id' => 22, 'value' => 'Aliquam vestibulum cursus felis. In iaculis iaculis sapien ac condimentum. Vestibulum congue posuere lacus, id tincidunt nisi porta sit amet. Suspendisse et sapien varius, pellentesque dui non, semper orci.']);
+        DB::table($table)->insert(['comp_section_id' => 42,'comp_attribute_id' => 1, 'value' => 'https://www.youtube.com/watch?v=IXoMDwh4Cq8']);
+
+        //PRICING
+        DB::table($table)->insert(['comp_section_id' => 43,'comp_attribute_id' => 21, 'value' => 'PRICING TABLE']);
+        DB::table($table)->insert(['comp_section_id' => 43,'comp_attribute_id' => 22, 'value' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! 
+Lorem ipsum dolor sit amet, consectetur.']);
+        DB::table($table)->insert(['comp_section_id' => 44,'comp_attribute_id' => 23, 'value' => 'FREE']);
+        DB::table($table)->insert(['comp_section_id' => 44,'comp_attribute_id' => 24, 'value' => '0.00']);
+        DB::table($table)->insert(['comp_section_id' => 44,'comp_attribute_id' => 25, 'value' => 'Consectetur adipiscing. Nunc luctus nulla et tellus. Suspendisse quis metus. Vestibul varius fermentum erat']);
+        DB::table($table)->insert(['comp_section_id' => 44,'comp_attribute_id' => 26, 'value' => 'GET PLAN']);
+        DB::table($table)->insert(['comp_section_id' => 44,'comp_attribute_id' => 23, 'value' => 'POPULAR']);
+        DB::table($table)->insert(['comp_section_id' => 44,'comp_attribute_id' => 24, 'value' => '3.99']);
+        DB::table($table)->insert(['comp_section_id' => 44,'comp_attribute_id' => 25, 'value' => 'Consectetur adipiscing. Nunc luctus nulla et tellus. Suspendisse quis metus. Vestibul varius fermentum erat']);
+        DB::table($table)->insert(['comp_section_id' => 44,'comp_attribute_id' => 26, 'value' => 'BUY NOW']);
+        DB::table($table)->insert(['comp_section_id' => 44,'comp_attribute_id' => 23, 'value' => 'PREMIUM']);
+        DB::table($table)->insert(['comp_section_id' => 44,'comp_attribute_id' => 24, 'value' => '9.50']);
+        DB::table($table)->insert(['comp_section_id' => 44,'comp_attribute_id' => 25, 'value' => 'Consectetur adipiscing. Nunc luctus nulla et tellus. Suspendisse quis metus. Vestibul varius fermentum erat']);
+        DB::table($table)->insert(['comp_section_id' => 44,'comp_attribute_id' => 26, 'value' => 'GET PLAN']);
+
+        DB::table($table)->insert(['comp_section_id' => 45,'comp_attribute_id' => 13, 'value' => 'clock']);
+        DB::table($table)->insert(['comp_section_id' => 45,'comp_attribute_id' => 14, 'value' => '1589']);
+        DB::table($table)->insert(['comp_section_id' => 45,'comp_attribute_id' => 15, 'value' => 'Working Hours']);
+        DB::table($table)->insert(['comp_section_id' => 45,'comp_attribute_id' => 13, 'value' => 'briefcase']);
+        DB::table($table)->insert(['comp_section_id' => 45,'comp_attribute_id' => 14, 'value' => '699']);
+        DB::table($table)->insert(['comp_section_id' => 45,'comp_attribute_id' => 15, 'value' => 'Completed Projects']);
+        DB::table($table)->insert(['comp_section_id' => 45,'comp_attribute_id' => 13, 'value' => 'user']);
+        DB::table($table)->insert(['comp_section_id' => 45,'comp_attribute_id' => 14, 'value' => '202']);
+        DB::table($table)->insert(['comp_section_id' => 45,'comp_attribute_id' => 15, 'value' => 'No. of Clients']);
+        DB::table($table)->insert(['comp_section_id' => 45,'comp_attribute_id' => 13, 'value' => 'heart']);
+        DB::table($table)->insert(['comp_section_id' => 45,'comp_attribute_id' => 14, 'value' => '1689']);
+        DB::table($table)->insert(['comp_section_id' => 45,'comp_attribute_id' => 15, 'value' => 'Peoples Love']);
+
+        //TEAM
+        DB::table($table)->insert(['comp_section_id' => 46,'comp_attribute_id' => 21, 'value' => 'OUR TEAM']);
+        DB::table($table)->insert(['comp_section_id' => 46,'comp_attribute_id' => 22, 'value' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! 
+Lorem ipsum dolor sit amet, consectetur.']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 27, 'value' => 'images/team/team1.jpg']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 28, 'value' => 'Jhon Doe']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 29, 'value' => 'Chief Technical Officer']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 30, 'value' => '#']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 31, 'value' => '#']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 32, 'value' => '#']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 33, 'value' => '#']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 34, 'value' => '#']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 27, 'value' => 'images/team/team2.jpg']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 28, 'value' => 'Paul Kowalsy']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 29, 'value' => 'CEO & Co-Founder']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 30, 'value' => '#']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 31, 'value' => '#']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 32, 'value' => '#']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 33, 'value' => '#']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 34, 'value' => '#']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 27, 'value' => 'images/team/team3.jpg']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 28, 'value' => 'Emilly Williams']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 29, 'value' => 'Business Manager']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 30, 'value' => '#']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 31, 'value' => '#']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 32, 'value' => '#']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 33, 'value' => '#']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 34, 'value' => '#']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 27, 'value' => 'images/team/team4.jpg']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 28, 'value' => 'Patricia Green']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 29, 'value' => 'Graphic Designer']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 30, 'value' => '#']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 31, 'value' => '#']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 32, 'value' => '#']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 33, 'value' => '#']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 34, 'value' => '#']);
+
+        DB::table($table)->insert(['comp_section_id' => 48,'comp_attribute_id' => 1, 'value' => 'Contact With us']);
+        DB::table($table)->insert(['comp_section_id' => 49,'comp_attribute_id' => 1, 'value' => 'Centerville Road, DE 19808, US']);
+        DB::table($table)->insert(['comp_section_id' => 50,'comp_attribute_id' => 1, 'value' => '(+94 123 456 789)']);
+        DB::table($table)->insert(['comp_section_id' => 51,'comp_attribute_id' => 1, 'value' => '(contact@mate.com)']);
+        DB::table($table)->insert(['comp_section_id' => 52,'comp_attribute_id' => 16, 'value' => 'Name']);
+        DB::table($table)->insert(['comp_section_id' => 52,'comp_attribute_id' => 17, 'value' => 'Email']);
+        DB::table($table)->insert(['comp_section_id' => 52,'comp_attribute_id' => 18, 'value' => 'Subject']);
+        DB::table($table)->insert(['comp_section_id' => 52,'comp_attribute_id' => 19, 'value' => 'Message']);
+        DB::table($table)->insert(['comp_section_id' => 52,'comp_attribute_id' => 20, 'value' => 'Send Message']);
+
+
+
+
 
     }
 }
