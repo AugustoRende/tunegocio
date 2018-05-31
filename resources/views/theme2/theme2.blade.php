@@ -85,8 +85,10 @@
                 <div class="row justify-content-md-center">
                     <div class="col-md-10">
                         <div class="contents text-center">
-                            <h1 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="0.3s">Mate - Free Parallax Website Template</h1>
-                            <p class="lead  wow fadeIn" data-wow-duration="1000ms" data-wow-delay="400ms">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            @if ($user->getComponentValue('Inicio','Intro'))
+                                <h1 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="0.3s">{{$user->getComponentValue('Inicio','Intro')->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE}}</h1>
+                                <p class="lead  wow fadeIn" data-wow-duration="1000ms" data-wow-delay="400ms">{{$user->getComponentValue('Inicio','Intro')->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE}}</p>
+                            @endif
                             <a href="#" class="btn btn-common wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">Download</a>
                         </div>
                     </div>
