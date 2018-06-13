@@ -244,7 +244,7 @@ Lorem ipsum dolor sit amet, consectetur.']);
         DB::table($table)->insert(['comp_section_id' => 44,'comp_attribute_id' => 23, 'value' => 'PREMIUM']);
         DB::table($table)->insert(['comp_section_id' => 44,'comp_attribute_id' => 24, 'value' => '9.50']);
         DB::table($table)->insert(['comp_section_id' => 44,'comp_attribute_id' => 25, 'value' => 'Consectetur adipiscing. Nunc luctus nulla et tellus. Suspendisse quis metus. Vestibul varius fermentum erat']);
-        DB::table($table)->insert(['comp_section_id' => 44,'comp_attribute_id' => 26, 'value' => 'GET PLAN']);
+        DB::table($table)->insert(['comp_section_id' => 44,'comp_attribute_id' => 26, 'value' => 'BUY NOW']);
 
         DB::table($table)->insert(['comp_section_id' => 45,'comp_attribute_id' => 13, 'value' => 'clock']);
         DB::table($table)->insert(['comp_section_id' => 45,'comp_attribute_id' => 14, 'value' => '1589']);

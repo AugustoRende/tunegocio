@@ -7,7 +7,7 @@
         <meta name="keywords" content="Bootstrap, Parallax, Template, Registration, Landing">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta name="author" content="Grayrids">
-        <title>Mate - Parallax Website Template</title>
+        <title>{{$user->getComponentValue('Inicio','Intro')->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE}}</title>
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="{{ asset('theme2/app.css') }}">  
@@ -15,7 +15,6 @@
     <body>
         @if ($sections->contains('href','#hero-area'))
         <header id="hero-area" data-stellar-background-ratio="0.5">    
-            <!-- Navbar Start -->
             <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar indigo">
                 <div class="container">
                     <!-- Brand and toggle get grouped for better mobile display -->
@@ -27,60 +26,22 @@
                     </div>
                     <div class="collapse navbar-collapse" id="main-navbar">
                         <ul class="navbar-nav mr-auto w-100 justify-content-end">
-                            <li class="nav-item">
-                                <a class="nav-link page-scroll" href="#home">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link page-scroll" href="#services">Services</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link page-scroll" href="#features">Features</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link page-scroll" href="#portfolios">Works</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link page-scroll" href="#pricing">Pricing</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link page-scroll" href="#team">Team</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link page-scroll" href="#contact">Contact</a>
-                            </li>
+                            @foreach($sections as $section)
+                                <li class="nav-item">
+                                    <a class="nav-link page-scroll" href="{{ $section->href }}">{{ $section->name }}</a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
 
-                <!-- Mobile Menu Start -->
                 <ul class="mobile-menu">
-                    <li>
-                        <a class="page-scroll" href="#home">Home</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#services">Services</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#features">Features</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#portfolios">Works</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#pricing">Pricing</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#team">Team</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
+                    @foreach($sections as $section)
+                        <li><a class="page-scroll" href="{{ $section->href }}">{{ $section->name }}</a></li>
+                    @endforeach
                 </ul>
-                <!-- Mobile Menu End -->
             </nav>
 
-
-            <!-- Navbar End -->   
             <div class="container">      
                 <div class="row justify-content-md-center">
                     <div class="col-md-10">
@@ -89,7 +50,7 @@
                                 <h1 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="0.3s">{{$user->getComponentValue('Inicio','Intro')->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE}}</h1>
                                 <p class="lead  wow fadeIn" data-wow-duration="1000ms" data-wow-delay="400ms">{{$user->getComponentValue('Inicio','Intro')->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE}}</p>
                             @endif
-                            <a href="#" class="btn btn-common wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">Download</a>
+                            <a href="#" class="btn btn-common wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="400ms">{{$user->getComponentValue('Inicio','Botón')}}</a>
                         </div>
                     </div>
                 </div> 
@@ -101,38 +62,22 @@
         <section id="services" class="section">
             <div class="container">
                 <div class="section-header">          
-                    <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Our Services</h2>
+                    <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">{{$user->getComponentValue('Servicios','Intro')->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE}}</h2>
                     <hr class="lines wow zoomIn" data-wow-delay="0.3s">
-                    <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p>
+                    <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">{{$user->getComponentValue('Servicios','Intro')->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE}}</p>
                 </div>
                 <div class="row">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="item-boxes wow fadeInDown" data-wow-delay="0.2s">
-                            <div class="icon">
-                                <i class="lnr lnr-pencil"></i>
+                    @foreach ($user->getComponentValuesGroup('Servicios','Servicios',3) as $campo)
+                        <div class="col-md-4 col-sm-6">
+                            <div class="item-boxes wow fadeInDown" data-wow-delay="0.2s">
+                                <div class="icon">
+                                    <i class="lnr lnr-{{ $campo->where('COMPONENT_TYPE_NAME','Icono')->first()->VALUE }}"></i>
+                                </div>
+                                <h4>{{ $campo->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE }}</h4>
+                                <p>{{ $campo->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE }}</p>
                             </div>
-                            <h4>Content Writing</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="item-boxes wow fadeInDown" data-wow-delay="0.8s">
-                            <div class="icon">
-                                <i class="lnr lnr-code"></i>
-                            </div>
-                            <h4>Web Development</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="item-boxes wow fadeInDown" data-wow-delay="1.2s">
-                            <div class="icon">
-                                <i class="lnr lnr-mustache"></i>
-                            </div>
-                            <h4>Business Consultancy</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut.</p>
-                        </div>
-                    </div>
+                        </div>    
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -142,50 +87,25 @@
         <section id="features" class="section" data-stellar-background-ratio="0.2">
             <div class="container">
                 <div class="section-header">          
-                  <h2 class="section-title">Some Features</h2>
+                  <h2 class="section-title">{{$user->getComponentValue('Características','Intro')->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE}}</h2>
                   <hr class="lines">
-                  <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p>
+                  <p class="section-subtitle">{{$user->getComponentValue('Características','Intro')->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE}}</p>
                 </div>
                 <div class="row">
                     <div class="col-lg-8 col-md-12 col-xs-12">
                         <div class="container">
                             <div class="row">
-                                <div class="col-lg-6 col-sm-6 col-xs-12 box-item">
-                                    <span class="icon">
-                                        <i class="lnr lnr-rocket"></i>
-                                    </span>
-                                    <div class="text">
-                                        <h4>Bootstrap 4 Based</h4>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                @foreach ($user->getComponentValuesGroup('Características','Características',3) as $campo)
+                                    <div class="col-lg-6 col-sm-6 col-xs-12 box-item">
+                                        <span class="icon">
+                                            <i class="lnr lnr-{{ $campo->where('COMPONENT_TYPE_NAME','Icono')->first()->VALUE }}"></i>
+                                        </span>
+                                        <div class="text">
+                                            <h4>{{ $campo->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE }}</h4>
+                                            <p>{{ $campo->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE }}</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-6 col-sm-6 col-xs-12 box-item">
-                                    <span class="icon">
-                                        <i class="lnr lnr-laptop-phone"></i>
-                                    </span>
-                                    <div class="text">
-                                        <h4>Fully Responsive</h4>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-sm-6 col-xs-12 box-item">
-                                    <span class="icon">
-                                        <i class="lnr lnr-layers"></i>
-                                    </span>
-                                    <div class="text">
-                                        <h4>Parallax Background</h4>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-sm-6 col-xs-12 box-item">
-                                    <span class="icon">
-                                      <i class="lnr lnr-cog"></i>
-                                    </span>
-                                    <div class="text">
-                                        <h4>Easy to Customize</h4>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -201,91 +121,38 @@
 
         @if ($sections->contains('href','#portfolios'))
         <section id="portfolios" class="section">
-            <!-- Container Starts -->
             <div class="container">
                 <div class="section-header">          
-                    <h2 class="section-title">Our Portfolio</h2>
+                    <h2 class="section-title">{{$user->getComponentValue('Trabajos','Intro')->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE}}</h2>
                     <hr class="lines">
-                    <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p>
+                    <p class="section-subtitle">{{$user->getComponentValue('Trabajos','Intro')->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE}}</p>
                 </div>
                 <div class="row">          
                     <div class="col-md-12">
-                        <!-- Portfolio Controller/Buttons -->
                         <div class="controls text-center">
                             <a class="filter active btn btn-common" data-filter="all">All</a>
-                            <a class="filter btn btn-common" data-filter=".design">Design</a>
-                            <a class="filter btn btn-common" data-filter=".development">Development</a>
-                            <a class="filter btn btn-common" data-filter=".print">Print</a>
+                            @foreach ($user->getComponentKeys('Trabajos','Galería','Título') as $valor)
+                                <a class="filter btn btn-common" data-filter=".{{ $valor }}">{{ $valor }}</a>
+                            @endforeach
                         </div>
-                        <!-- Portfolio Controller/Buttons Ends-->
                     </div>
 
-                    <!-- Portfolio Recent Projects -->
                     <div id="portfolio" class="row">
-                        <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development print">
-                            <div class="portfolio-item">
-                                <div class="shot-item">
-                                    <img src="{{ asset('theme2/images/portfolio/img1.jpg') }}" alt="" />  
-                                    <a class="overlay lightbox" href="{{ asset('theme2/images/portfolio/img1.jpg') }}">
-                                        <i class="lnr lnr-eye item-icon"></i>
-                                    </a>
-                                </div>               
+                        @foreach ($user->getComponentValuesGroup('Trabajos','Galería',3) as $campo)
+                            <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix {{ $campo->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE }}">
+                                <div class="portfolio-item">
+                                    <div class="shot-item">
+                                        <img src="{{ asset('theme2/'.$campo->where('COMPONENT_TYPE_NAME','Imagen')->first()->VALUE) }}" alt="" />  
+                                        <a class="overlay lightbox" href="{{ asset('theme2/'.$campo->where('COMPONENT_TYPE_NAME','Imagen')->first()->VALUE) }}">
+                                            <i class="lnr lnr-eye item-icon"></i>
+                                        </a>
+                                    </div>               
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix design print">
-                            <div class="portfolio-item">
-                                <div class="shot-item">
-                                    <img src="{{ asset('theme2/images/portfolio/img2.jpg') }}" alt="" />  
-                                    <a class="overlay lightbox" href="{{ asset('theme2/images/portfolio/img2.jpg') }}">
-                                        <i class="lnr lnr-eye item-icon"></i>
-                                    </a>
-                                </div>               
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development">
-                            <div class="portfolio-item">
-                                <div class="shot-item">
-                                    <img src="{{ asset('theme2/images/portfolio/img3.jpg') }}" alt="" />  
-                                    <a class="overlay lightbox" href="{{ asset('theme2/images/portfolio/img3.jpg') }}">
-                                        <i class="lnr lnr-eye item-icon"></i>
-                                    </a>
-                                </div>               
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development design">
-                            <div class="portfolio-item">
-                                <div class="shot-item">
-                                    <img src="{{ asset('theme2/images/portfolio/img4.jpg') }}" alt="" />  
-                                    <a class="overlay lightbox" href="{{ asset('theme2/images/portfolio/img4.jpg') }}">
-                                        <i class="lnr lnr-eye item-icon"></i>
-                                    </a>
-                                </div>               
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix development">
-                            <div class="portfolio-item">
-                                <div class="shot-item">
-                                    <img src="{{ asset('theme2/images/portfolio/img5.jpg') }}" alt="" />  
-                                    <a class="overlay lightbox" href="{{ asset('theme2/images/portfolio/img5.jpg') }}">
-                                        <i class="lnr lnr-eye item-icon"></i>
-                                    </a>
-                                </div>               
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix print design">
-                            <div class="portfolio-item">
-                                <div class="shot-item">
-                                    <img src="{{ asset('theme2/images/portfolio/img6.jpg') }}" alt="" />  
-                                    <a class="overlay lightbox" href="{{ asset('theme2/images/portfolio/img6.jpg') }}">
-                                        <i class="lnr lnr-eye item-icon"></i>
-                                    </a>
-                                </div>               
-                            </div>
-                        </div>
-                      </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
-            <!-- Container Ends -->
         </section>
 
         <section class="video-promo section">
@@ -293,9 +160,9 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
                         <div class="video-promo-content text-center">
-                            <h2 class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">Watch Our Intro video</h2>
-                            <p class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">Aliquam vestibulum cursus felis. In iaculis iaculis sapien ac condimentum. Vestibulum congue posuere lacus, id tincidunt nisi porta sit amet. Suspendisse et sapien varius, pellentesque dui non, semper orci.</p>
-                            <a href="https://www.youtube.com/watch?v=IXoMDwh4Cq8" class="video-popup wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="0.3s"><i class="lnr lnr-film-play"></i></a>
+                            <h2 class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">{{$user->getComponentValue('Trabajos','Intro2')->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE}}</h2>
+                            <p class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">{{$user->getComponentValue('Trabajos','Intro2')->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE}}</p>
+                            <a href="{{$user->getComponentValue('Trabajos','Video')}}" class="video-popup wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="0.3s"><i class="lnr lnr-film-play"></i></a>
                         </div>
                     </div>
                 </div>
@@ -307,115 +174,45 @@
         <div id="pricing" class="section pricing-section">
             <div class="container">
                 <div class="section-header">          
-                    <h2 class="section-title">Pricing Table</h2>
+                    <h2 class="section-title">{{$user->getComponentValue('Planes','Intro')->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE}}</h2>
                     <hr class="lines">
-                    <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p>
+                    <p class="section-subtitle">{{$user->getComponentValue('Planes','Intro')->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE}}</p>
                 </div>
 
                 <div class="row pricing-tables">
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="pricing-table">
-                            <div class="pricing-details">
-                                <h2>Free</h2>
-                                <span>$00</span>
-                                <ul>
-                                    <li>Consectetur adipiscing</li>
-                                    <li>Nunc luctus nulla et tellus</li>
-                                    <li>Suspendisse quis metus</li>
-                                    <li>Vestibul varius fermentum erat</li>
-                                </ul>
-                            </div>
-                            <div class="plan-button">
-                                <a href="#" class="btn btn-common">Get Plan</a>
+                    @foreach ($user->getComponentValuesGroup('Planes','Planes',4) as $campo)
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="pricing-table">
+                                <div class="pricing-details">
+                                    <h2>{{ $campo->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE }}</h2>
+                                    <span>{{ $campo->where('COMPONENT_TYPE_NAME','Monto')->first()->VALUE }}</span>
+                                    <ul>{{ $campo->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE }}</ul>
+                                </div>
+                                <div class="plan-button">
+                                    <a href="#" class="btn btn-common">{{ $campo->where('COMPONENT_TYPE_NAME','Botón')->first()->VALUE }}</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="pricing-table">
-                            <div class="pricing-details">
-                                <h2>Popular</h2>
-                                <span>$3.99</span>
-                                <ul>
-                                    <li>Consectetur adipiscing</li>
-                                    <li>Nunc luctus nulla et tellus</li>
-                                    <li>Suspendisse quis metus</li>
-                                    <li>Vestibul varius fermentum erat</li>
-                                </ul>
-                            </div>
-                            <div class="plan-button">
-                                <a href="#" class="btn btn-common">Buy Now</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6 col-xs-12">
-                        <div class="pricing-table">
-                            <div class="pricing-details">
-                                <h2>Premium</h2>
-                                <span>$9.50</span>
-                                <ul>
-                                    <li>Consectetur adipiscing</li>
-                                    <li>Nunc luctus nulla et tellus</li>
-                                    <li>Suspendisse quis metus</li>
-                                    <li>Vestibul varius fermentum erat</li>
-                                </ul>
-                            </div>
-                            <div class="plan-button">
-                                <a href="#" class="btn btn-common">Buy Now</a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
         <div class="counters section" data-stellar-background-ratio="0.5">
             <div class="container">
                 <div class="row"> 
-                    <div class="col-sm-6 col-md-3 col-lg-3">
-                        <div class="facts-item">   
-                            <div class="icon">
-                                <i class="lnr lnr-clock"></i>
-                            </div>             
-                            <div class="fact-count">
-                                <h3><span class="counter">1589</span></h3>
-                                <h4>Working Hours</h4>
+                    @foreach ($user->getComponentValuesGroup('Planes','Info',3) as $campo)
+                        <div class="col-sm-6 col-md-3 col-lg-3">
+                            <div class="facts-item">   
+                                <div class="icon">
+                                    <i class="lnr lnr-{{ $campo->where('COMPONENT_TYPE_NAME','Icono')->first()->VALUE }}"></i>
+                                </div>             
+                                <div class="fact-count">
+                                    <h3><span class="counter">{{ $campo->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE }}</span></h3>
+                                    <h4>{{ $campo->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE }}</h4>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3 col-lg-3">
-                        <div class="facts-item">   
-                            <div class="icon">
-                                <i class="lnr lnr-briefcase"></i>
-                            </div>            
-                            <div class="fact-count">
-                                <h3><span class="counter">699</span></h3>
-                                <h4>Completed Projects</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3 col-lg-3">
-                        <div class="facts-item"> 
-                            <div class="icon">
-                                <i class="lnr lnr-user"></i>
-                            </div>              
-                            <div class="fact-count">
-                                <h3><span class="counter">203</span></h3>
-                                <h4>No. of Clients</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3 col-lg-3">
-                        <div class="facts-item"> 
-                            <div class="icon">
-                                <i class="lnr lnr-heart"></i>
-                            </div>              
-                            <div class="fact-count">
-                                <h3><span class="counter">1689</span></h3>
-                                <h4>Peoples Love</h4>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -425,124 +222,33 @@
         <section id="team" class="section">
             <div class="container">
                 <div class="section-header">          
-                  <h2 class="section-title">Our Team</h2>
-                  <hr class="lines">
-                  <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! <br> Lorem ipsum dolor sit amet, consectetur.</p>
+                    <h2 class="section-title">{{$user->getComponentValue('Equipo','Intro')->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE}}</h2>
+                    <hr class="lines">
+                    <p class="section-subtitle">{{$user->getComponentValue('Equipo','Intro')->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE}}</p>
                 </div>
                 <div class="row">
-                    <div class="col-lg-3 col-md-6 col-xs-12">
-                        <div class="single-team">
-                            <img src="{{ asset('theme2/images/team/team1.jpg') }}" alt="">
-                            <div class="team-details">
-                                <div class="team-inner">
-                                    <h4 class="team-title">Jhon Doe</h4>
-                                    <p>Chief Technical Officer</p>
-                                    <ul class="social-list">
-                                        <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                        <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    </ul>
+                    @foreach ($user->getComponentValuesGroup('Equipo','Equipo',8) as $campo)
+                        <div class="col-lg-3 col-md-6 col-xs-12">
+                            <div class="single-team">
+                                <img src="{{ asset('theme2/'.$campo->where('COMPONENT_TYPE_NAME','Imagen')->first()->VALUE) }}" alt="">
+                                <div class="team-details">
+                                    <div class="team-inner">
+                                        <h4 class="team-title">{{ $campo->where('COMPONENT_TYPE_NAME','Nombre')->first()->VALUE }}</h4>
+                                        <p>{{ $campo->where('COMPONENT_TYPE_NAME','Puesto')->first()->VALUE }}</p>
+                                        <ul class="social-list">
+                                            <li class="facebook"><a href="{{ $campo->where('COMPONENT_TYPE_NAME','Red Social 1')->first()->VALUE }}"><i class="fa fa-facebook"></i></a></li>
+                                            <li class="twitter"><a href="{{ $campo->where('COMPONENT_TYPE_NAME','Red Social 2')->first()->VALUE }}"><i class="fa fa-twitter"></i></a></li>
+                                            <li class="google-plus"><a href="{{ $campo->where('COMPONENT_TYPE_NAME','Red Social 3')->first()->VALUE }}"><i class="fa fa-google-plus"></i></a></li>
+                                            <li class="linkedin"><a href="{{ $campo->where('COMPONENT_TYPE_NAME','Red Social 4')->first()->VALUE }}"><i class="fa fa-linkedin"></i></a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-xs-12">
-                        <div class="single-team">
-                            <img src="{{ asset('theme2/images/team/team2.jpg') }}" alt="">
-                            <div class="team-details">
-                                <div class="team-inner">
-                                    <h4 class="team-title">Paul Kowalsy</h4>
-                                    <p>CEO & Co-Founder</p>
-                                    <ul class="social-list">
-                                        <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                        <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-xs-12">
-                        <div class="single-team">
-                            <img src="{{ asset('theme2/images/team/team3.jpg') }}" alt="">
-                            <div class="team-details">
-                                <div class="team-inner">                  
-                                    <h4 class="team-title">Emilly Williams</h4>
-                                    <p>Business Manager</p>
-                                    <ul class="social-list">
-                                        <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                        <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-xs-12">
-                        <div class="single-team">
-                            <img class="img-fulid" src="{{ asset('theme2/images/team/team4.jpg') }}" alt="">
-                            <div class="team-details">
-                                <div class="team-inner">
-                                    <h4 class="team-title">Patricia Green</h4>
-                                    <p>Graphic Designer</p>
-                                    <ul class="social-list">
-                                        <li class="facebook"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li class="twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                        <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        </div>   
+                    @endforeach
                 </div>
             </div>
         </section>
-        <div id="testimonial" class="section" data-stellar-background-ratio="0.1">
-            <div class="container">
-                <div class="row justify-content-md-center">
-                    <div class="col-md-12">
-                        <div class="touch-slider owl-carousel owl-theme">
-                            <div class="testimonial-item">
-                                <img src="{{ asset('theme2/images/testimonial/customer1.jpg') }}" alt="Client Testimonoal" />
-                                <div class="testimonial-text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. send do <br> adipisicing ciusmod tempor incididunt ut labore et</p>
-                                    <h3>Jone Deam</h3>
-                                    <span>Fondor of Jalmori</span>
-                                </div>
-                            </div>
-                            <div class="testimonial-item">
-                                <img src="{{ asset('theme2/images/testimonial/customer2.jpg') }}" alt="Client Testimonoal" />
-                                <div class="testimonial-text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. send do <br> adipisicing ciusmod tempor incididunt ut labore et</p>
-                                    <h3>Oidila Matik</h3>
-                                    <span>President Lexo Inc</span>
-                                </div>
-                            </div>
-                            <div class="testimonial-item">
-                                <img src="{{ asset('theme2/images/testimonial/customer3.jpg') }}" alt="Client Testimonoal" />
-                                <div class="testimonial-text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. send do <br> adipisicing ciusmod tempor incididunt ut labore et</p>
-                                    <h3>Alex Dattilo</h3>
-                                    <span>CEO Optima Inc</span>
-                                </div>
-                            </div>
-                            <div class="testimonial-item">
-                                <img src="{{ asset('theme2/images/testimonial/customer4.jpg') }}" alt="Client Testimonoal" />
-                                <div class="testimonial-text">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. send do <br> adipisicing ciusmod tempor incididunt ut labore et</p>
-                                    <h3>Paul Kowalsy</h3>
-                                    <span>CEO & Founder</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>        
-            </div>
-        </div>
         @endif
 
         @if ($sections->contains('href','#contact'))
@@ -552,11 +258,11 @@
                     <div class="row">     
                         <div class="col-lg-6 col-sm-6 col-xs-12">
                             <div class="contact-us">
-                                <h3>Contact With us</h3>
+                                <h3>{{$user->getComponentValue('Contacto','Título')}}</h3>
                                 <div class="contact-address">
-                                    <p>Centerville Road, DE 19808, US </p>
-                                    <p class="phone">Phone: <span>(+94 123 456 789)</span></p>
-                                    <p class="email">E-mail: <span>(contact@mate.com)</span></p>
+                                    <p>{{$user->getComponentValue('Contacto','Dirección')}}</p>
+                                    <p class="phone">Teléfono: <span>{{$user->getComponentValue('Contacto','Teléfono')}}</span></p>
+                                    <p class="email">E-mail: <span>{{$user->getComponentValue('Contacto','Email')}}</span></p>
                                 </div>
                                 <div class="social-icons">
                                     <ul>
@@ -573,7 +279,28 @@
                             <div class="contact-block">
                                 <form id="contactForm">
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        @foreach ($user->getComponentValuesGroup('Contacto','Formulario') as $campo)
+                                            <div class="col-md-12">
+                                                <div class="form-group"> 
+                                                    @if ($campo->COMPONENT_TYPE_NAME == 'Mensaje')
+                                                        <textarea class="form-control" id="{{$campo->VALUE}}" placeholder="{{$campo->VALUE}}" rows="8" data-error="Escribe tu {{$campo->VALUE}}" required></textarea>
+                                                        <div class="help-block with-errors"></div>
+                                                    @endif
+                                                    @if ($campo->COMPONENT_TYPE_NAME == 'Botón')
+                                                        <div class="submit-button text-center">
+                                                            <button class="btn btn-common" id="submit" type="submit">{{$campo->VALUE}}</button>
+                                                            <div id="msgSubmit" class="h3 text-center hidden"></div> 
+                                                            <div class="clearfix"></div> 
+                                                        </div>
+                                                    @endif
+                                                    @if ($campo->COMPONENT_TYPE_NAME != 'Mensaje' && $campo->COMPONENT_TYPE_NAME != 'Botón')
+                                                        <input type="text" class="form-control" id="{{$campo->VALUE}}" name="{{$campo->VALUE}}" placeholder="{{$campo->VALUE}}" required data-error="Por favor ingrese su {{$campo->VALUE}}">
+                                                        <div class="help-block with-errors"></div>
+                                                    @endif
+                                                </div>                                   
+                                            </div>
+                                        @endforeach
+                                        {{-- <div class="col-md-12">
                                             <div class="form-group">
                                                 <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
                                                 <div class="help-block with-errors"></div>
@@ -595,7 +322,7 @@
                                                 <div id="msgSubmit" class="h3 text-center hidden"></div> 
                                                 <div class="clearfix"></div> 
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>            
                                 </form>
                             </div>
@@ -628,7 +355,7 @@
                     </div>
                     <div class="col-lg-6 col-sm-6 col-xs-12">
                         <div class="copyright">
-                            <p>All copyrights reserved &copy; 2018 - Designed & Developed by <a rel="nofollow" href="https://uideck.com">UIdeck</a></p>
+                            <p>© Copyright InfinIT 2018.</p>
                         </div>
                     </div>  
                 </div>

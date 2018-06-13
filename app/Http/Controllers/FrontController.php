@@ -55,6 +55,7 @@ class FrontController extends Controller
             //dd($user->componentSections()->first()->attributes()->first()->pivot->value);
             $sections = $user->sections();
 
+            //$keys = $user->getComponentKeys('Trabajos','Galería','Título');
             //ACCESO A LOS VALORES DE LOS COMPONENTES
             // dd($user->getComponentValue('Inicio','Red Social'));
             // dd($user->getData());

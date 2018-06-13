@@ -87,6 +87,28 @@ class User extends Authenticatable
         return $data;
     }
 
+    /**
+     * Get componentKeys for theme that owns the user.
+     */
+    public function getComponentKeys($section_name, $component_section_name, $key)
+    {
+        $data = DB::table('vw_component_attributes_user')->where([
+            ['user_id',$this->id],
+            ['visible',1],
+            ['section_name',$section_name],
+            ['component_section_name',$component_section_name],
+            ['component_type_name',$key],
+        ])->get();
+
+        $valores = '';
+        foreach ($data as $item) {
+            $valores = $item->VALUE.' '.$valores;
+        }
+        
+        return array_unique(explode(' ',trim($valores)));
+    }
+
+
     public function sections()
     {
         $auxiliar = $this->componentSections()->where('visible',1)->get()->groupBy('section_id')->toArray();
