@@ -4,7 +4,7 @@
 <head>
     <!--- basic page needs ================================================== -->
     <meta charset="utf-8">
-	<title>{{ $user->tittle }}</title>
+	<title>{{ $user->title }}</title>
 	<meta name="description" content="">  
 	<meta name="author" content="">
 

@@ -24,7 +24,7 @@ class ComponentSectionAttributesTableSeeder extends Seeder
         DB::table($table)->insert(['comp_section_id' => 5,'comp_attribute_id' => 1, 'value' => 'https://www.instagram.com/augusto-rende-giacomelli']);
 
         //ABOUT
-        DB::table($table)->insert(['comp_section_id' => 6,'comp_attribute_id' => 1, 'value' => 'SOBRE YO']);
+        DB::table($table)->insert(['comp_section_id' => 6,'comp_attribute_id' => 1, 'value' => 'SOBRE MI']);
         DB::table($table)->insert(['comp_section_id' => 7,'comp_attribute_id' => 1, 'value' => 'Una pequeña introducción.']);
         DB::table($table)->insert(['comp_section_id' => 8,'comp_attribute_id' => 1, 'value' => 'images/profile-pic.jpg']);
         DB::table($table)->insert(['comp_section_id' => 9,'comp_attribute_id' => 1, 'value' => 'Descripción']);
@@ -161,13 +161,13 @@ class ComponentSectionAttributesTableSeeder extends Seeder
         //INFORMACIÓN 3
         DB::table($table)->insert(['comp_section_id' => 31,'comp_attribute_id' => 13, 'value' => 'icon-phone']);
         DB::table($table)->insert(['comp_section_id' => 31,'comp_attribute_id' => 14, 'value' => 'Llamame al']);
-        DB::table($table)->insert(['comp_section_id' => 31,'comp_attribute_id' => 15, 'value' => 'Mobile: (+54) 9 221 435 3738']);
+        DB::table($table)->insert(['comp_section_id' => 31,'comp_attribute_id' => 15, 'value' => 'Cel: (+54) 9 221 435 3738']);
         
 
 
         //THEME 2
         //HOME
-        DB::table($table)->insert(['comp_section_id' => 32,'comp_attribute_id' => 21, 'value' => 'Mate - Free Parallax']);
+        DB::table($table)->insert(['comp_section_id' => 32,'comp_attribute_id' => 21, 'value' => 'InfinIT']);
         DB::table($table)->insert(['comp_section_id' => 32,'comp_attribute_id' => 22, 'value' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.']);
         DB::table($table)->insert(['comp_section_id' => 33,'comp_attribute_id' => 1, 'value' => 'Download']);
 

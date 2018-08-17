@@ -21,3 +21,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('users', 'UserController');
 Route::resource('themes', 'ThemeController');
+
+Route::get('/saveTheme/{id}', 'HomeController@updateTheme');
+Route::get('/generateTheme', 'HomeController@generateTheme');

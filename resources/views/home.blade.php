@@ -14,10 +14,16 @@
                         </div>
                     @endif
 
-                    Bienvenido!
+                    Bienvenido {{ $user->name }}!
                 </div>
             </div>
         </div>
     </div>
+
+    {{-- SI NO TIENE EL TEMA SETEADO LE MUESTRO LA SECCIÓN DE SELECCIÓN --}}
+    @includeWhen(!$user->theme_id,'themes')
+
+    {{-- SI TIENE EL TEMA SETEADO LE MUESTRO LA EDICIÓN DE LOS CAMPOS--}}
+    @includeWhen($user->theme_id,'theme_edit')
 </div>
 @endsection

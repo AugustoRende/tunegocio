@@ -22,6 +22,7 @@ class CreateComponentSectionUsersTable extends Migration
             $table->string('color')->nullable();
             $table->tinyInteger('visible')->default(1);
             $table->timestamps();
+            $table->unique(['component_section_id', 'user_id']);
         });
     }
 

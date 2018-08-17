@@ -17,6 +17,8 @@ class CreateThemesTable extends Migration
             $table->increments('id');
             $table->string('code');
             $table->string('name');
+            $table->string('demo_url');
+            $table->string('img');
             $table->tinyInteger('active')->default(1);
             $table->timestamps();
             $table->softDeletes();

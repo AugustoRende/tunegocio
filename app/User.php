@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'url', 'tittle', 'logo', 'theme_id', 'primary_color', 'secondary_color',
+        'name', 'email', 'password', 'url', 'title', 'logo', 'theme_id', 'primary_color', 'secondary_color',
     ];
 
     /**
@@ -106,6 +106,13 @@ class User extends Authenticatable
         }
         
         return array_unique(explode(' ',trim($valores)));
+    }
+
+
+    public function generateTheme()
+    {
+        DB::select('CALL inserts_component_section_users('.$this->id.', '.$this->theme_id.')');
+        DB::select('CALL inserts_component_section_user_attribute('.$this->id.')');
     }
 
 

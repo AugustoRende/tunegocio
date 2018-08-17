@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'augustorendegiacomelli@gmail.com',
             'password' => bcrypt('augusto'),
             'url' => 'augustorende',
-            'tittle' => 'Augusto Rende Giacomelli',
+            'title' => 'Augusto Rende Giacomelli',
             'theme_id' => '1',
             'primary_color' => '#2ECC71',
             //'secondary_color' => '#FFFFFF',
@@ -29,23 +29,23 @@ class UsersTableSeeder extends Seeder
             'email' => 'lucioviedo@gmail.com',
             'password' => bcrypt('augusto'),
             'url' => 'luciaoviedo',
-            'tittle' => 'Lucía Oviedo',
+            'title' => 'Lucía Oviedo',
             'theme_id' => '1',
             'primary_color' => '#A5178D',
             //'secondary_color' => '#FFFFFF',
             'remember_token' => str_random(10),
         ]);
 
-        User::create([
+        /*User::create([
             'name' => 'InfinIT',
             'email' => 'ventas.infinit@gmail.com',
             'password' => bcrypt('1nf1n172018'),
             'url' => 'infinit',
-            'tittle' => 'InfinIT Software Solutions',
+            'title' => 'InfinIT Software Solutions',
             'theme_id' => '2',
             'primary_color' => '#2E64FE',
             //'secondary_color' => '#FFFFFF',
             'remember_token' => str_random(10),
-        ]);
+        ]);*/
     }
 }
