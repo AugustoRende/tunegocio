@@ -169,7 +169,7 @@ class ComponentSectionAttributesTableSeeder extends Seeder
         //HOME
         DB::table($table)->insert(['comp_section_id' => 32,'comp_attribute_id' => 21, 'value' => 'InfinIT']);
         DB::table($table)->insert(['comp_section_id' => 32,'comp_attribute_id' => 22, 'value' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.']);
-        DB::table($table)->insert(['comp_section_id' => 33,'comp_attribute_id' => 1, 'value' => 'Download']);
+        DB::table($table)->insert(['comp_section_id' => 33,'comp_attribute_id' => 1, 'value' => 'Contactenos']);
 
         //SERVICES
         DB::table($table)->insert(['comp_section_id' => 34,'comp_attribute_id' => 21, 'value' => 'OUR SERVICES']);

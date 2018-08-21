@@ -29,15 +29,17 @@ class HomeController extends Controller
         // Get the currently authenticated user...
         $user = Auth::user();
         
-        // Get the user theme
-        $theme = Theme::find($user->theme_id);
+        // Get sections for the user
+        $sections = $user->sections();
 
         // Get all Themes
         $themes = Theme::get();
 
-        return view('home',compact('user','themes','theme'));
+        return view('home',compact('user','themes','sections'));
     }
 
+
+    //PASAR A POST!!!
     // TODO: Ver donde iría esta funcionalidad
     public function updateTheme($theme_id)
     {
@@ -50,10 +52,17 @@ class HomeController extends Controller
         return response()->json(['response' => 'Sus cambios han sido guardados satisfactoriamente.']);
     }
 
-
     public function generateTheme()
     {
         Auth::user()->generateTheme();
+
+        //TODO: Ver qué necesito enviar como respuesta
+        return response()->json(['response' => 'Sus cambios han sido guardados satisfactoriamente.']);
+    }
+
+    public function saveValue($csu_id,$ca_id,$oldValue,$newValue)
+    {
+        Auth::user()->updateValue($csu_id,$ca_id,$oldValue,$newValue);
 
         //TODO: Ver qué necesito enviar como respuesta
         return response()->json(['response' => 'Sus cambios han sido guardados satisfactoriamente.']);

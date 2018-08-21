@@ -36,12 +36,38 @@ $(document).ready(function(){
 
     $("#next").click(function( event ) {
         if ($(this).attr("disabled") == "disabled") {
+            console.log($(this).attr("disabled"));
             return false;
         } else {
             generateTheme();
         }
     });
+
+
+    //EDICIÓN DE LOS VALORES DEL TEMA
+    $(".saveChanges").click(function( event ) {
+        event.stopPropagation();
+        campos=$('.'+this.id);
+        campos.each(function( index, campo ) {
+            console.log(campo.value);
+            console.log(campo.title);
+            newValue = campo.value;
+            section = campo.title.split('-')[0];
+            component = campo.title.split('-')[1];
+            oldValue = campo.title.split('-')[2];
+            saveValue(section,component,oldValue,newValue);
+
+            campo.title = section+'-'+component+'-'+newValue;
+        });
+    });
 });
+
+
+function saveValue($section,$component,$oldValue,$newValue) {
+    $.get('/saveValue/'+$section+'/'+$component+'/'+$oldValue+'/'+$newValue, function(){ 
+        console.log(guardado);
+    });
+}
 
 
 //FUNCIONALIDAD AGREGADA A LA GALERIA
@@ -50,6 +76,8 @@ function saveTheme($theme_id){
         $('.thumbnail').css('background-color','#F5F8FA')
         $('#theme'+$theme_id).css('background-color','#42B32F');
         $("#next").removeAttr('disabled');
+        $("#next").addClass('label-success');
+        $("#next").removeClass('label-default');
     });
 }
 

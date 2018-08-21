@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="keywords" content="Bootstrap, Parallax, Template, Registration, Landing">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <meta name="author" content="Grayrids">
-        <title>{{$user->getComponentValue('Inicio','Intro')->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE}}</title>
-
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="{{ asset('theme2/app.css') }}">  
-    </head>
-    <body>
-        @if ($sections->contains('href','#hero-area'))
+@if ($sections->contains('href','#hero-area'))
         <header id="hero-area" data-stellar-background-ratio="0.5">    
             <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar indigo">
                 <div class="container">
@@ -374,5 +359,3 @@
         </div>     
 
         <script src="{{ asset('theme2/app.js') }}"></script>
-    </body>
-</html>

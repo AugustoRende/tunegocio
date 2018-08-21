@@ -109,10 +109,47 @@ class User extends Authenticatable
     }
 
 
+    /**
+     * Get sectionData for section that owns the user.
+     */
+    public function getSectionValues($section_name)
+    {
+        $data = DB::table('vw_component_attributes_user')->where([
+            ['user_id',$this->id],
+            ['visible',1],
+            ['section_name',$section_name],
+        ])->get();
+
+        if ($data->count() == 0) {
+            return null;
+        }
+        if ($data->count() == 1) {
+            return $data->first()->VALUE;
+        }
+        return $data;
+    }
+
+
+    /**
+     * Generate schema for de selected theme
+     */
     public function generateTheme()
     {
         DB::select('CALL inserts_component_section_users('.$this->id.', '.$this->theme_id.')');
         DB::select('CALL inserts_component_section_user_attribute('.$this->id.')');
+    }
+
+
+    /**
+     * Edit value for user theme
+     */
+    public function updateValue($csu_id,$ca_id,$oldValue,$newValue)
+    {
+        DB::select('CALL update_component_section_user_attribute('.$csu_id.','.$ca_id.',"'.$oldValue.'","'.$newValue.'")');
+        // ComponentSectionUserAttribute::where('comp_section_user_id', $csu_id)
+        //     ->where('component_attribute_id', $ca_id)
+        //     ->where('value', $oldValue)
+        //     ->update(['value' => $newValue]);
     }
 
 
