@@ -60,9 +60,9 @@ class HomeController extends Controller
         return response()->json(['response' => 'Sus cambios han sido guardados satisfactoriamente.']);
     }
 
-    public function saveValue($csu_id,$ca_id,$oldValue,$newValue)
+    public function saveValue($csua_id,$newValue)
     {
-        Auth::user()->updateValue($csu_id,$ca_id,$oldValue,$newValue);
+        Auth::user()->updateValue($csua_id,$newValue);
 
         //TODO: Ver qué necesito enviar como respuesta
         return response()->json(['response' => 'Sus cambios han sido guardados satisfactoriamente.']);

@@ -143,13 +143,9 @@ class User extends Authenticatable
     /**
      * Edit value for user theme
      */
-    public function updateValue($csu_id,$ca_id,$oldValue,$newValue)
+    public function updateValue($csua_id,$newValue)
     {
-        DB::select('CALL update_component_section_user_attribute('.$csu_id.','.$ca_id.',"'.$oldValue.'","'.$newValue.'")');
-        // ComponentSectionUserAttribute::where('comp_section_user_id', $csu_id)
-        //     ->where('component_attribute_id', $ca_id)
-        //     ->where('value', $oldValue)
-        //     ->update(['value' => $newValue]);
+        DB::select('CALL update_component_section_user_attribute('.$csua_id.',"'.$newValue.'")');
     }
 
 

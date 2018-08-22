@@ -23,5 +23,5 @@ Route::resource('users', 'UserController');
 Route::resource('themes', 'ThemeController');
 
 Route::get('/saveTheme/{id}', 'HomeController@updateTheme');
-Route::get('/saveValue/{section}/{component}/{oldValue}/{newValue}', 'HomeController@saveValue');
+Route::get('/saveValue/{csua_id}/{newValue}', 'HomeController@saveValue');
 Route::get('/generateTheme', 'HomeController@generateTheme');
