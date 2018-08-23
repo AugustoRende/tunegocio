@@ -38,7 +38,7 @@ $(document).ready(function(){
 
 
     //AL HACER CLICK EN VER DEMO NO LO TOMO COMO UNA SELECCIÓN
-    $(".cuerpo a").click(function( event ) {
+    $(".card-body a").click(function( event ) {
         event.stopPropagation();
     });
 
@@ -71,17 +71,17 @@ $(document).ready(function(){
 
 
 function saveValue($csua_id,$newValue) {
-    $.get('/saveValue/'+$csua_id+'/'+$newValue, function(){ 
-        //console.log(iframe);
+    $.post('/saveValue',{csua_id:$csua_id,newValue:$newValue},function(response){
+        console.log(response);
     });
 }
 
 
 //FUNCIONALIDAD AGREGADA A LA GALERIA
 function saveTheme($theme_id){
-    $.get('/saveTheme/'+$theme_id, function(){ 
-        $('.thumbnail').css('background-color','#F5F8FA')
-        $('#theme'+$theme_id).css('background-color','#42B32F');
+    $.post('/saveTheme',{theme_id:$theme_id},function(response){
+        $('.card').css('background-color','#F5F8FA')
+        $('#theme'+$theme_id).css('background-color','#D4FFF7');
         $("#next").removeAttr('disabled');
         $("#next").addClass('label-success');
         $("#next").removeClass('label-default');
@@ -89,7 +89,7 @@ function saveTheme($theme_id){
 }
 
 function generateTheme(){
-    $.get('/generateTheme', function(){ 
+    $.post('/generateTheme',function(response){
         window.location.reload(true);
     });
 }

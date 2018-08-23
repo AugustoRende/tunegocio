@@ -39,12 +39,11 @@ class HomeController extends Controller
     }
 
 
-    //PASAR A POST!!!
     // TODO: Ver donde iría esta funcionalidad
-    public function updateTheme($theme_id)
+    public function updateTheme(Request $request)
     {
         $user = Auth::user();
-        $user->theme_id = $theme_id;
+        $user->theme_id = $request->theme_id;
 
         $user->save();
 
@@ -60,11 +59,11 @@ class HomeController extends Controller
         return response()->json(['response' => 'Sus cambios han sido guardados satisfactoriamente.']);
     }
 
-    public function saveValue($csua_id,$newValue)
+    public function saveValue(Request $request)
     {
-        Auth::user()->updateValue($csua_id,$newValue);
+        Auth::user()->updateValue($request->csua_id,$request->newValue);
 
-        //TODO: Ver qué necesito enviar como respuesta
         return response()->json(['response' => 'Sus cambios han sido guardados satisfactoriamente.']);
     }
+
 }
