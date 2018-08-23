@@ -68,15 +68,17 @@
                 </div>
                 <div class="row">
                     @foreach ($user->getComponentValuesGroup('Servicios','Servicios',3) as $campo)
-                        <div class="col-md-4 col-sm-6">
-                            <div class="item-boxes wow fadeInDown" data-wow-delay="0.2s">
-                                <div class="icon">
-                                    <i class="lnr lnr-{{ $campo->where('COMPONENT_TYPE_NAME','Icono')->first()->VALUE }}"></i>
+                        @if($campo->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE)
+                            <div class="col-md-4 col-sm-6">
+                                <div class="item-boxes wow fadeInDown" data-wow-delay="0.2s">
+                                    <div class="icon">
+                                        <i class="lnr lnr-{{ $campo->where('COMPONENT_TYPE_NAME','Icono')->first()->VALUE }}"></i>
+                                    </div>
+                                    <h4>{{ $campo->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE }}</h4>
+                                    <p>{{ $campo->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE }}</p>
                                 </div>
-                                <h4>{{ $campo->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE }}</h4>
-                                <p>{{ $campo->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE }}</p>
-                            </div>
-                        </div>    
+                            </div>    
+                        @endif
                     @endforeach
                 </div>
             </div>

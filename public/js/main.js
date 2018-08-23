@@ -56,8 +56,12 @@ $(document).ready(function(){
     $(".saveChanges").click(function( event ) {
         event.stopPropagation();
         campos=$('.'+this.id);
+        this.disabled = true;
+        button.addClass("btn-outline-default");
+        button.removeClass("btn-outline-success");
+
         campos.each(function( index, campo ) {
-            console.log(campo.title+' - '+campo.value);
+            //console.log(campo.title+' - '+campo.value);
             newValue = campo.value;
             csua_id = campo.title;
             saveValue(csua_id,newValue);
@@ -67,12 +71,19 @@ $(document).ready(function(){
             iframe.src = iframe.src;
         }, 1500);
     });
+
+    $(".campo").change(function() {
+        button = $("#"+this.name);
+        button.removeAttr('disabled');
+        button.addClass("btn-outline-success");
+        button.removeClass("btn-outline-default");
+    });
 });
 
 
 function saveValue($csua_id,$newValue) {
     $.post('/saveValue',{csua_id:$csua_id,newValue:$newValue},function(response){
-        console.log(response);
+        //console.log(response);
     });
 }
 

@@ -26,14 +26,14 @@
 										  	<div class="form-group row">
 											    <label for="{{$section->code.'-'.$item->COMPONENT_TYPE_NAME}}" class="col-sm-3 control-label">{{$item->COMPONENT_TYPE_NAME}}</label>
 											    <div class="col-sm-9">
-											      	<input type="text" class="form-control save{{$section->code}}" id="{{$section->code.'-'.$item->COMPONENT_TYPE_NAME}}" value="{{$item->VALUE}}" title="{{$item->csua_id}}">
+											      	<input type="text" class="form-control save{{$section->code}} campo" name="save{{$section->code}}" id="{{$section->code.'-'.$item->COMPONENT_TYPE_NAME}}" value="{{$item->VALUE}}" title="{{$item->csua_id}}">
 											    </div>
 											</div>
 										@endforeach
 											
 										<div class="form-group row justify-content-end">
 										    <div class="col-4">
-										      	<button id="save{{$section->code}}" type="button" class="btn btn-default saveChanges">Guardar Cambios</button>
+										      	<button id="save{{$section->code}}" type="button" class="btn btn-outline-default saveChanges" disabled>Guardar Cambios</button>
 										    </div>
 									 	</div>
 									</form>
