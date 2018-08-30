@@ -60,16 +60,16 @@ $(document).ready(function(){
         button.addClass("btn-outline-default");
         button.removeClass("btn-outline-success");
 
+
+        var count = campos.length;
         campos.each(function( index, campo ) {
-            //console.log(campo.title+' - '+campo.value);
             newValue = campo.value;
             csua_id = campo.title;
-            saveValue(csua_id,newValue);
-        });
 
-        setTimeout(function(){
-            iframe.src = iframe.src;
-        }, 1500);
+            saveValue(csua_id, newValue, null);
+
+            reloadPreview(index,count);
+        });
     });
 
     $(".campo").change(function() {
@@ -78,11 +78,59 @@ $(document).ready(function(){
         button.addClass("btn-outline-success");
         button.removeClass("btn-outline-default");
     });
+
+
+    //FUNCIONALIDAD DE LOS SLIDERS
+    $(".big-slider").click(function( event ) {
+        classChilds = this.id;
+        checked = $(this).is(':checked');
+        console.log(this.title);
+        console.log(checked ? 1 : 0);
+        updateSectionVisibility(this.title, (checked ? 1 : 0));
+
+        childs = $('.'+classChilds);
+
+        var count = childs.length;
+        childs.each(function(index) {
+            if (checked) { $(this).attr('disabled',false); }
+
+            if ($(this).is(':checked') !== checked){ $(this).click(); }
+            
+            if (!checked) { $(this).attr('disabled',true); }
+            
+            reloadPreview(index,count);
+        });
+
+    });
+
+    $("[class*=big-slider-]").click(function( event ) {
+        event.stopPropagation();
+        updateComponentVisible($(this));
+    });
+
+    //DESACTIVO LOS HIJOS PARA AQUELLOS PADRES DESACTIVADOS
+    $("[class*=big-slider-]").each(function() {
+        parent = $('#'+$(this).attr('class'));
+
+        if (!parent.is(':checked')) {
+            $(this).attr('disabled',true);
+        }
+    });
 });
 
 
-function saveValue($csua_id,$newValue) {
-    $.post('/saveValue',{csua_id:$csua_id,newValue:$newValue},function(response){
+//VISIBILIDAD DE LOS COMPONENTES
+function updateComponentVisible(input) {
+    input.click();
+    
+    csua_id = input.attr('title');
+    visible = (input.is(':checked') ? 1 : 0);
+
+    saveValue(csua_id, null, visible);
+}
+
+function updateSectionVisibility($section_id, $visible) {
+    $.post('/updateSectionVisibility',{section_id:$section_id, visible:$visible},function(response){
         //console.log(response);
     });
 }
@@ -103,4 +151,18 @@ function generateTheme(){
     $.post('/generateTheme',function(response){
         window.location.reload(true);
     });
+}
+
+function saveValue($csua_id, $newValue, $visible) {
+    $.post('/saveValue',{csua_id:$csua_id, newValue:$newValue, visible:$visible},function(response){
+        //console.log(response);
+    });
+}
+
+function reloadPreview(index,count) {
+    if (index+1 === count) {
+        setTimeout(function(){
+            iframe.src = iframe.src;
+        }, 2000);
+    }
 }

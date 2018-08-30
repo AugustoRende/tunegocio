@@ -20,6 +20,7 @@ class CreateComponentSectionUserAttributeTable extends Migration
             $table->integer('component_attribute_id')->unsigned();
             $table->foreign('component_attribute_id')->references('id')->on('component_attributes')->onDelete('no action')->onUpdate('no action');
             $table->string('value',1000)->nullable();
+            $table->tinyInteger('visible')->default(1);
             $table->timestamps();
         });
     }

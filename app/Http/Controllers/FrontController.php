@@ -53,7 +53,10 @@ class FrontController extends Controller
             
             //dd($user->componentSections()->get()->groupBy('section_id')->toArray());
             //dd($user->componentSections()->first()->attributes()->first()->pivot->value);
-            $sections = $user->sections();
+            
+            //REVISAR
+            //$sections = $user->sections();
+            $sections = $user->getSections();
 
             //$keys = $user->getComponentKeys('Trabajos','Galería','Título');
             //ACCESO A LOS VALORES DE LOS COMPONENTES

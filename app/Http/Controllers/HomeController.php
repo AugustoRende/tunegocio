@@ -30,8 +30,9 @@ class HomeController extends Controller
         $user = Auth::user();
         
         // Get sections for the user
-        $sections = $user->sections();
-
+        //$sections = $user->sections();
+        $sections = $user->getSectionsToEdit();
+        
         // Get all Themes
         $themes = Theme::get();
 
@@ -61,7 +62,14 @@ class HomeController extends Controller
 
     public function saveValue(Request $request)
     {
-        Auth::user()->updateValue($request->csua_id,$request->newValue);
+        Auth::user()->updateValue($request->csua_id, $request->newValue, $request->visible);
+
+        return response()->json(['response' => 'Sus cambios han sido guardados satisfactoriamente.']);
+    }
+    
+    public function updateSectionVisibility(Request $request)
+    {
+        Auth::user()->updateSectionVisibility($request->section_id,$request->visible);
 
         return response()->json(['response' => 'Sus cambios han sido guardados satisfactoriamente.']);
     }

@@ -131,6 +131,63 @@ class User extends Authenticatable
 
 
     /**
+     * Get sectionData TO EDIT for section that owns the user.
+     */
+    public function getSectionValuesToEdit($section_name)
+    {
+        $data = DB::table('vw_component_attributes_user')->where([
+            ['user_id',$this->id],
+            ['section_name',$section_name],
+        ])->get();
+
+        if ($data->count() == 0) {
+            return null;
+        }
+        // if ($data->count() == 1) {
+        //     return $data->first()->VALUE;
+        // }
+        return $data;
+    }
+
+    
+    /**
+     * Get sections that owns the user.
+     */
+    public function getSections()
+    {
+        $data = DB::table('vw_section_user')
+            ->selectRaw('id, code, name, href, allow_image, MAX(visible) AS visible')
+            ->where('user_id',$this->id)
+            ->where('visible',1)
+            ->groupBy('id')
+            ->get();
+
+        if ($data->count() == 0) {
+            return null;
+        }
+        return $data;
+    }
+
+    
+    /**
+     * Get sections TO EDIT that owns the user.
+     */
+    public function getSectionsToEdit()
+    {
+        $data = DB::table('vw_section_user')
+            ->selectRaw('id, code, name, href, allow_image, MAX(visible) AS visible')
+            ->where('user_id',$this->id)
+            ->groupBy('id')
+            ->get();
+
+        if ($data->count() == 0) {
+            return null;
+        }
+        return $data;
+    }
+
+
+    /**
      * Generate schema for de selected theme
      */
     public function generateTheme()
@@ -143,15 +200,27 @@ class User extends Authenticatable
     /**
      * Edit value for user theme
      */
-    public function updateValue($csua_id,$newValue)
+    public function updateValue($csua_id, $newValue, $visible)
     {
-        DB::select('CALL update_component_section_user_attribute('.$csua_id.',"'.$newValue.'")');
+        DB::select('CALL update_component_section_user_attribute('.$csua_id.',"'.$newValue.'","'.$visible.'")');
+    }
+
+
+    /**
+     * Edit visibility for user section
+     */
+    public function updateSectionVisibility($section_id,$visible)
+    {
+        DB::select('CALL update_component_section_users('.$section_id.',"'.$visible.'")');
+        // $this->componentSectionUsers()
+        //     ->where('id', $csu_id)
+        //     ->update(['visible' => $visible]);
     }
 
 
     public function sections()
     {
-        $auxiliar = $this->componentSections()->where('visible',1)->get()->groupBy('section_id')->toArray();
+        $auxiliar = $this->componentSections()->get()->groupBy('section_id')->toArray();
         $sections = Section::whereIn('id',array_keys($auxiliar))->get();
 
         return $sections;

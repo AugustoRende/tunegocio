@@ -23,5 +23,6 @@ Route::resource('users', 'UserController');
 Route::resource('themes', 'ThemeController');
 
 Route::post('/saveTheme', 'HomeController@updateTheme');
-Route::post('/saveValue', 'HomeController@saveValue');
 Route::post('/generateTheme', 'HomeController@generateTheme');
+Route::post('/saveValue', 'HomeController@saveValue');
+Route::post('/updateSectionVisibility', 'HomeController@updateSectionVisibility');

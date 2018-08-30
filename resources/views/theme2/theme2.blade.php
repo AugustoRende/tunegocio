@@ -7,7 +7,10 @@
         <meta name="keywords" content="Bootstrap, Parallax, Template, Registration, Landing">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta name="author" content="Grayrids">
-        <title>{{$user->getComponentValue('Inicio','Intro')->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE}}</title>
+        
+        @if($user->getComponentValue('Inicio','Intro'))
+            <title>{{$user->getComponentValue('Inicio','Intro')->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE}}</title>
+        @endif
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="{{ asset('theme2/app.css') }}">  

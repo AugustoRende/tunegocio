@@ -53,7 +53,7 @@ class ComponentSection extends Model
      */
     public function users()
     {
-        return $this->belongsToMany('TuNegocio\User','component_section_users')->withPivot('user_id','component_section_id','color','visible');
+        return $this->belongsToMany('TuNegocio\User','component_section_users')->withPivot('user_id','component_section_id','color');
     }
 
     /**

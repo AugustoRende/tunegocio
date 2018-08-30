@@ -62,7 +62,7 @@ class ComponentAttribute extends Model
      */
     public function componentSectionUsers()
     {
-        return $this->belongsToMany('TuNegocio\ComponentSectionUser','component_section_user_attribute','component_attribute_id','comp_section_user_id')->withPivot('comp_section_user_id', 'component_attribute_id', 'value');
+        return $this->belongsToMany('TuNegocio\ComponentSectionUser','component_section_user_attribute','component_attribute_id','comp_section_user_id')->withPivot('comp_section_user_id', 'component_attribute_id', 'value', 'visible');
 
     }
 

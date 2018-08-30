@@ -12,7 +12,7 @@ class ComponentSectionUser extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'component_section_id', 'color', 'visible',
+        'user_id', 'component_section_id', 'color',
     ];
 
     /**
@@ -54,7 +54,7 @@ class ComponentSectionUser extends Model
      */
     public function attributes()
     {
-        return $this->belongsToMany('TuNegocio\ComponentAttribute','component_section_user_attribute','comp_section_user_id','component_attribute_id')->withPivot('comp_section_user_id', 'component_attribute_id', 'value');
+        return $this->belongsToMany('TuNegocio\ComponentAttribute','component_section_user_attribute','comp_section_user_id','component_attribute_id')->withPivot('comp_section_user_id', 'component_attribute_id', 'value','visible');
 
     }
 }

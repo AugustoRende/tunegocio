@@ -12,7 +12,7 @@ class ComponentSectionUserAttribute extends Model
      * @var array
      */
     protected $fillable = [
-        'comp_section_user_id', 'component_attribute_id', 'value',
+        'comp_section_user_id', 'component_attribute_id', 'value', 'visible',
     ];
 
     /**
