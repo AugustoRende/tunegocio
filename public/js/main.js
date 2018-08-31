@@ -44,7 +44,6 @@ $(document).ready(function(){
 
     $("#next").click(function( event ) {
         if ($(this).attr("disabled") == "disabled") {
-            console.log($(this).attr("disabled"));
             return false;
         } else {
             generateTheme();
@@ -84,8 +83,6 @@ $(document).ready(function(){
     $(".big-slider").click(function( event ) {
         classChilds = this.id;
         checked = $(this).is(':checked');
-        console.log(this.title);
-        console.log(checked ? 1 : 0);
         updateSectionVisibility(this.title, (checked ? 1 : 0));
 
         childs = $('.'+classChilds);

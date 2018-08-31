@@ -53,7 +53,10 @@
                                 <h1 class="wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="0.3s">{{$user->getComponentValue('Inicio','Intro')->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE}}</h1>
                                 <p class="lead  wow fadeIn" data-wow-duration="1000ms" data-wow-delay="400ms">{{$user->getComponentValue('Inicio','Intro')->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE}}</p>
                             @endif
-                            <a href="#contact" class="btn btn-common nav-link page-scroll">{{$user->getComponentValue('Inicio','Botón')}}</a>
+                            
+                            @if ($user->getComponentValue('Inicio','Botón'))
+                                <a href="#contact" class="btn btn-common nav-link page-scroll">{{$user->getComponentValue('Inicio','Botón')}}</a>
+                            @endif
                         </div>
                     </div>
                 </div> 
@@ -61,14 +64,16 @@
         </header>
         @endif
 
-        @if ($sections->contains('href','#services'))
+        @if ($sections->contains('href','#services') && ($user->getComponentValue('Servicios','Intro') || $user->getComponentValue('Servicios','Servicios')))
         <section id="services" class="section">
             <div class="container">
-                <div class="section-header">          
-                    <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">{{$user->getComponentValue('Servicios','Intro')->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE}}</h2>
-                    <hr class="lines wow zoomIn" data-wow-delay="0.3s">
-                    <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">{{$user->getComponentValue('Servicios','Intro')->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE}}</p>
-                </div>
+                @if ($user->getComponentValue('Servicios','Intro'))
+                    <div class="section-header">          
+                        <h2 class="section-title wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">{{$user->getComponentValue('Servicios','Intro')->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE}}</h2>
+                        <hr class="lines wow zoomIn" data-wow-delay="0.3s">
+                        <p class="section-subtitle wow fadeIn" data-wow-duration="1000ms" data-wow-delay="0.3s">{{$user->getComponentValue('Servicios','Intro')->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE}}</p>
+                    </div>
+                @endif
                 <div class="row">
                     @foreach ($user->getComponentValuesGroup('Servicios','Servicios',3) as $campo)
                         @if($campo->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE)
@@ -88,14 +93,18 @@
         </section>
         @endif
 
-        @if ($sections->contains('href','#features'))
+        @if ($sections->contains('href','#features') && ($user->getComponentValue('Características','Intro') || $user->getComponentValue('Características','Características')))
         <section id="features" class="section" data-stellar-background-ratio="0.2">
             <div class="container">
-                <div class="section-header">          
-                  <h2 class="section-title">{{$user->getComponentValue('Características','Intro')->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE}}</h2>
-                  <hr class="lines">
-                  <p class="section-subtitle">{{$user->getComponentValue('Características','Intro')->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE}}</p>
-                </div>
+                @if ($user->getComponentValue('Características','Intro'))
+                    <div class="section-header">          
+                        <h2 class="section-title">{{$user->getComponentValue('Características','Intro')->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE}}</h2>
+                        <hr class="lines">
+                        <p class="section-subtitle">{{$user->getComponentValue('Características','Intro')->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE}}</p>
+                    </div>
+                @endif
+
+                @if ($user->getComponentValue('Características','Características'))
                 <div class="row">
                     <div class="col-lg-8 col-md-12 col-xs-12">
                         <div class="container">
@@ -120,18 +129,23 @@
                         </div>
                     </div>
                 </div>
+                @endif
             </div>
         </section>
         @endif
 
-        @if ($sections->contains('href','#portfolios'))
+        @if ($sections->contains('href','#portfolios') && ($user->getComponentValue('Trabajos','Intro') || $user->getComponentValue('Trabajos','Galería')))
         <section id="portfolios" class="section">
             <div class="container">
-                <div class="section-header">          
-                    <h2 class="section-title">{{$user->getComponentValue('Trabajos','Intro')->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE}}</h2>
-                    <hr class="lines">
-                    <p class="section-subtitle">{{$user->getComponentValue('Trabajos','Intro')->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE}}</p>
-                </div>
+                @if ($user->getComponentValue('Trabajos','Intro'))
+                    <div class="section-header">          
+                        <h2 class="section-title">{{$user->getComponentValue('Trabajos','Intro')->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE}}</h2>
+                        <hr class="lines">
+                        <p class="section-subtitle">{{$user->getComponentValue('Trabajos','Intro')->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE}}</p>
+                    </div>
+                @endif
+                
+                @if ($user->getComponentValue('Trabajos','Galería'))
                 <div class="row">          
                     <div class="col-md-12">
                         <div class="controls text-center">
@@ -157,33 +171,39 @@
                         @endforeach
                     </div>
                 </div>
+                @endif
             </div>
         </section>
 
-        <section class="video-promo section">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="video-promo-content text-center">
-                            <h2 class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">{{$user->getComponentValue('Trabajos','Intro2')->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE}}</h2>
-                            <p class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">{{$user->getComponentValue('Trabajos','Intro2')->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE}}</p>
-                            <a href="{{$user->getComponentValue('Trabajos','Video')}}" class="video-popup wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="0.3s"><i class="lnr lnr-film-play"></i></a>
+            @if ($user->getComponentValue('Trabajos','Intro2'))
+            <section class="video-promo section">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="video-promo-content text-center">
+                                <h2 class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">{{$user->getComponentValue('Trabajos','Intro2')->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE}}</h2>
+                                <p class="wow zoomIn" data-wow-duration="1000ms" data-wow-delay="100ms">{{$user->getComponentValue('Trabajos','Intro2')->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE}}</p>
+                                <a href="{{$user->getComponentValue('Trabajos','Video')}}" class="video-popup wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="0.3s"><i class="lnr lnr-film-play"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+            @endif
         @endif
 
-        @if ($sections->contains('href','#pricing'))
+        @if ($sections->contains('href','#pricing') && ($user->getComponentValue('Planes','Intro') || $user->getComponentValue('Planes','Planes') || $user->getComponentValue('Planes','Info')))
         <div id="pricing" class="section pricing-section">
             <div class="container">
+                @if ($user->getComponentValue('Planes','Intro'))
                 <div class="section-header">          
                     <h2 class="section-title">{{$user->getComponentValue('Planes','Intro')->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE}}</h2>
                     <hr class="lines">
                     <p class="section-subtitle">{{$user->getComponentValue('Planes','Intro')->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE}}</p>
                 </div>
+                @endif
 
+                @if ($user->getComponentValue('Planes','Planes'))
                 <div class="row pricing-tables">
                     @foreach ($user->getComponentValuesGroup('Planes','Planes',4) as $campo)
                         <div class="col-md-4 col-sm-6 col-xs-12">
@@ -200,37 +220,45 @@
                         </div>
                     @endforeach
                 </div>
+                @endif
             </div>
         </div>
-        <div class="counters section" data-stellar-background-ratio="0.5">
-            <div class="container">
-                <div class="row"> 
-                    @foreach ($user->getComponentValuesGroup('Planes','Info',3) as $campo)
-                        <div class="col-sm-6 col-md-3 col-lg-3">
-                            <div class="facts-item">   
-                                <div class="icon">
-                                    <i class="lnr lnr-{{ $campo->where('COMPONENT_TYPE_NAME','Icono')->first()->VALUE }}"></i>
-                                </div>             
-                                <div class="fact-count">
-                                    <h3><span class="counter">{{ $campo->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE }}</span></h3>
-                                    <h4>{{ $campo->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE }}</h4>
+
+            @if ($user->getComponentValue('Planes','Info'))
+            <div class="counters section" data-stellar-background-ratio="0.5">
+                <div class="container">
+                    <div class="row"> 
+                        @foreach ($user->getComponentValuesGroup('Planes','Info',3) as $campo)
+                            <div class="col-sm-6 col-md-3 col-lg-3">
+                                <div class="facts-item">   
+                                    <div class="icon">
+                                        <i class="lnr lnr-{{ $campo->where('COMPONENT_TYPE_NAME','Icono')->first()->VALUE }}"></i>
+                                    </div>             
+                                    <div class="fact-count">
+                                        <h3><span class="counter">{{ $campo->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE }}</span></h3>
+                                        <h4>{{ $campo->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE }}</h4>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
                 </div>
             </div>
-        </div>
+            @endif
         @endif
 
-        @if ($sections->contains('href','#team'))
+        @if ($sections->contains('href','#team') && ($user->getComponentValue('Equipo','Intro') || $user->getComponentValue('Equipo','Equipo')))
         <section id="team" class="section">
             <div class="container">
+                @if ($user->getComponentValue('Equipo','Intro'))
                 <div class="section-header">          
                     <h2 class="section-title">{{$user->getComponentValue('Equipo','Intro')->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE}}</h2>
                     <hr class="lines">
                     <p class="section-subtitle">{{$user->getComponentValue('Equipo','Intro')->where('COMPONENT_TYPE_NAME','Descripción')->first()->VALUE}}</p>
                 </div>
+                @endif
+                
+                @if ($user->getComponentValue('Equipo','Equipo'))
                 <div class="row">
                     @foreach ($user->getComponentValuesGroup('Equipo','Equipo',8) as $campo)
                         <div class="col-lg-3 col-md-6 col-xs-12">
@@ -252,6 +280,7 @@
                         </div>   
                     @endforeach
                 </div>
+                @endif
             </div>
         </section>
         @endif
@@ -263,11 +292,20 @@
                     <div class="row">     
                         <div class="col-lg-6 col-sm-6 col-xs-12">
                             <div class="contact-us">
+                                @if ($user->getComponentValue('Contacto','Título'))
                                 <h3>{{$user->getComponentValue('Contacto','Título')}}</h3>
+                                @endif
+                                
                                 <div class="contact-address">
-                                    <p>{{$user->getComponentValue('Contacto','Dirección')}}</p>
-                                    <p class="phone">Teléfono: <span>{{$user->getComponentValue('Contacto','Teléfono')}}</span></p>
-                                    <p class="email">E-mail: <span>{{$user->getComponentValue('Contacto','Email')}}</span></p>
+                                    @if ($user->getComponentValue('Contacto','Dirección'))
+                                        <p>{{$user->getComponentValue('Contacto','Dirección')}}</p>
+                                    @endif
+                                    @if ($user->getComponentValue('Contacto','Teléfono'))
+                                        <p class="phone">Teléfono: <span>{{$user->getComponentValue('Contacto','Teléfono')}}</span></p>
+                                    @endif
+                                    @if ($user->getComponentValue('Contacto','Email'))
+                                        <p class="email">E-mail: <span>{{$user->getComponentValue('Contacto','Email')}}</span></p>
+                                    @endif
                                 </div>
                                 <div class="social-icons">
                                     <ul>
@@ -280,6 +318,8 @@
                                 </div>
                             </div>
                         </div>     
+                        
+                        @if ($user->getComponentValue('Contacto','Formulario'))
                         <div class="col-lg-6 col-sm-6 col-xs-12">
                             <div class="contact-block">
                                 <form id="contactForm">
@@ -305,33 +345,11 @@
                                                 </div>                                   
                                             </div>
                                         @endforeach
-                                        {{-- <div class="col-md-12">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required data-error="Please enter your name">
-                                                <div class="help-block with-errors"></div>
-                                            </div>                                 
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <input type="text" placeholder="Your Email" id="email" class="form-control" name="name" required data-error="Please enter your email">
-                                                <div class="help-block with-errors"></div>
-                                            </div> 
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group"> 
-                                                <textarea class="form-control" id="message" placeholder="Your Message" rows="8" data-error="Write your message" required></textarea>
-                                                <div class="help-block with-errors"></div>
-                                            </div>
-                                            <div class="submit-button text-center">
-                                                <button class="btn btn-common" id="submit" type="submit">Send Message</button>
-                                                <div id="msgSubmit" class="h3 text-center hidden"></div> 
-                                                <div class="clearfix"></div> 
-                                            </div>
-                                        </div> --}}
                                     </div>            
                                 </form>
                             </div>
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>           
