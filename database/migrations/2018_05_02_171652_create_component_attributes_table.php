@@ -17,6 +17,7 @@ class CreateComponentAttributesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('type');
+            $table->integer('order')->unsigned();
             $table->integer('component_id')->unsigned();
             $table->foreign('component_id')->references('id')->on('components')->onDelete('no action')->onUpdate('no action');
             $table->timestamps();

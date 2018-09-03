@@ -26,7 +26,7 @@ class ComponentSectionAttributesTableSeeder extends Seeder
         //ABOUT
         DB::table($table)->insert(['comp_section_id' => 6,'comp_attribute_id' => 1, 'value' => 'SOBRE MI']);
         DB::table($table)->insert(['comp_section_id' => 7,'comp_attribute_id' => 1, 'value' => 'Una pequeña introducción.']);
-        DB::table($table)->insert(['comp_section_id' => 8,'comp_attribute_id' => 1, 'value' => 'images/profile-pic.jpg']);
+        DB::table($table)->insert(['comp_section_id' => 8,'comp_attribute_id' => 1, 'value' => 'theme1/images/profile-pic.jpg']);
         DB::table($table)->insert(['comp_section_id' => 9,'comp_attribute_id' => 1, 'value' => 'Descripción']);
         DB::table($table)->insert(['comp_section_id' => 10,'comp_attribute_id' => 21, 'value' => 'PERFIL']);
         DB::table($table)->insert(['comp_section_id' => 10,'comp_attribute_id' => 22, 'value' => 'Descripción del perfil']);
@@ -101,19 +101,19 @@ class ComponentSectionAttributesTableSeeder extends Seeder
         DB::table($table)->insert(['comp_section_id' => 22,'comp_attribute_id' => 1, 'value' => 'MIS HOBBIES']);
         DB::table($table)->insert(['comp_section_id' => 23,'comp_attribute_id' => 1, 'value' => 'Algo de lo que me apasiona.']);
         //GALERIA 1
-        DB::table($table)->insert(['comp_section_id' => 24,'comp_attribute_id' => 10, 'value' => 'images/portfolio/futbol.jpg']);
+        DB::table($table)->insert(['comp_section_id' => 24,'comp_attribute_id' => 10, 'value' => 'theme1/images/portfolio/futbol.jpg']);
         DB::table($table)->insert(['comp_section_id' => 24,'comp_attribute_id' => 11, 'value' => 'Fútbol']);
         DB::table($table)->insert(['comp_section_id' => 24,'comp_attribute_id' => 12, 'value' => 'Sin dudas el fútbol es mi cable a tierra. Practico este deporte desde los 4 años, y es el momento en el que todos los problemas se borran de mi cabeza y se llena de puro disfrute.']);
         //GALERIA 2
-        DB::table($table)->insert(['comp_section_id' => 24,'comp_attribute_id' => 10, 'value' => 'images/portfolio/photo.jpg']);
+        DB::table($table)->insert(['comp_section_id' => 24,'comp_attribute_id' => 10, 'value' => 'theme1/images/portfolio/photo.jpg']);
         DB::table($table)->insert(['comp_section_id' => 24,'comp_attribute_id' => 11, 'value' => 'Fotografía']);
         DB::table($table)->insert(['comp_section_id' => 24,'comp_attribute_id' => 12, 'value' => 'La fotografía es otra de mis pasatiempos favoritos. En mis tardes libres suelo salir a tomar un poco de aire fresco, y nunca olvido llevar mi cámara. Siempre se encuentra alguna buena imagen para retratar.']);
         //GALERIA 3
-        DB::table($table)->insert(['comp_section_id' => 24,'comp_attribute_id' => 10, 'value' => 'images/portfolio/travel.jpg']);
+        DB::table($table)->insert(['comp_section_id' => 24,'comp_attribute_id' => 10, 'value' => 'theme1/images/portfolio/travel.jpg']);
         DB::table($table)->insert(['comp_section_id' => 24,'comp_attribute_id' => 11, 'value' => 'Viajar']);
         DB::table($table)->insert(['comp_section_id' => 24,'comp_attribute_id' => 12, 'value' => 'Y claro, no podía faltar VIAJAR. Cada vez que voy a salir a la ruta paso horas analizando los caminos a realizar y las atracciones por visitar. Tengo planeado recorrer todo el país. Para esto, voy marcando en un mapa a medida que conozco los distintos lugares de mi país.']);
         //GALERIA 4
-        DB::table($table)->insert(['comp_section_id' => 24,'comp_attribute_id' => 10, 'value' => 'images/portfolio/piano.jpg']);
+        DB::table($table)->insert(['comp_section_id' => 24,'comp_attribute_id' => 10, 'value' => 'theme1/images/portfolio/piano.jpg']);
         DB::table($table)->insert(['comp_section_id' => 24,'comp_attribute_id' => 11, 'value' => 'Piano']);
         DB::table($table)->insert(['comp_section_id' => 24,'comp_attribute_id' => 12, 'value' => 'Desde chico me sentí atraído por la música, y siempre tuve ganas de poder tocarla yo mismo. El año pasado pude hacer un espacio en mi día a día para comenzar a tocar el piano. Todavía soy un principiante, pero de a poco iré mejorando.']);
 
@@ -207,22 +207,22 @@ Lorem ipsum dolor sit amet, consectetur.']);
         DB::table($table)->insert(['comp_section_id' => 39,'comp_attribute_id' => 21, 'value' => 'OUR PORTFOLIO']);
         DB::table($table)->insert(['comp_section_id' => 39,'comp_attribute_id' => 22, 'value' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! 
 Lorem ipsum dolor sit amet, consectetur.']);
-        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 10, 'value' => 'images/portfolio/img1.jpg']);
+        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 10, 'value' => 'theme2/images/portfolio/img1.jpg']);
         DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 11, 'value' => 'development print']);
         DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 12, 'value' => 'descripción']);
-        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 10, 'value' => 'images/portfolio/img2.jpg']);
+        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 10, 'value' => 'theme2/images/portfolio/img2.jpg']);
         DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 11, 'value' => 'design print']);
         DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 12, 'value' => 'descripción']);
-        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 10, 'value' => 'images/portfolio/img3.jpg']);
+        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 10, 'value' => 'theme2/images/portfolio/img3.jpg']);
         DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 11, 'value' => 'development']);
         DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 12, 'value' => 'descripción']);
-        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 10, 'value' => 'images/portfolio/img4.jpg']);
+        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 10, 'value' => 'theme2/images/portfolio/img4.jpg']);
         DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 11, 'value' => 'development design']);
         DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 12, 'value' => 'descripción']);
-        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 10, 'value' => 'images/portfolio/img5.jpg']);
+        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 10, 'value' => 'theme2/images/portfolio/img5.jpg']);
         DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 11, 'value' => 'development']);
         DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 12, 'value' => 'descripción']);
-        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 10, 'value' => 'images/portfolio/img6.jpg']);
+        DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 10, 'value' => 'theme2/images/portfolio/img6.jpg']);
         DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 11, 'value' => 'print design']);
         DB::table($table)->insert(['comp_section_id' => 40,'comp_attribute_id' => 12, 'value' => 'descripción']);
         DB::table($table)->insert(['comp_section_id' => 41,'comp_attribute_id' => 21, 'value' => 'WATCH OUR INTRO VIDEO']);
@@ -263,7 +263,7 @@ Lorem ipsum dolor sit amet, consectetur.']);
         DB::table($table)->insert(['comp_section_id' => 46,'comp_attribute_id' => 21, 'value' => 'OUR TEAM']);
         DB::table($table)->insert(['comp_section_id' => 46,'comp_attribute_id' => 22, 'value' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, dignissimos! 
 Lorem ipsum dolor sit amet, consectetur.']);
-        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 27, 'value' => 'images/team/team1.jpg']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 27, 'value' => 'theme2/images/team/team1.jpg']);
         DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 28, 'value' => 'Jhon Doe']);
         DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 29, 'value' => 'Chief Technical Officer']);
         DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 30, 'value' => '#']);
@@ -271,7 +271,7 @@ Lorem ipsum dolor sit amet, consectetur.']);
         DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 32, 'value' => '#']);
         DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 33, 'value' => '#']);
         DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 34, 'value' => '#']);
-        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 27, 'value' => 'images/team/team2.jpg']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 27, 'value' => 'theme2/images/team/team2.jpg']);
         DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 28, 'value' => 'Paul Kowalsy']);
         DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 29, 'value' => 'CEO & Co-Founder']);
         DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 30, 'value' => '#']);
@@ -279,7 +279,7 @@ Lorem ipsum dolor sit amet, consectetur.']);
         DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 32, 'value' => '#']);
         DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 33, 'value' => '#']);
         DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 34, 'value' => '#']);
-        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 27, 'value' => 'images/team/team3.jpg']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 27, 'value' => 'theme2/images/team/team3.jpg']);
         DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 28, 'value' => 'Emilly Williams']);
         DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 29, 'value' => 'Business Manager']);
         DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 30, 'value' => '#']);
@@ -287,7 +287,7 @@ Lorem ipsum dolor sit amet, consectetur.']);
         DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 32, 'value' => '#']);
         DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 33, 'value' => '#']);
         DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 34, 'value' => '#']);
-        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 27, 'value' => 'images/team/team4.jpg']);
+        DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 27, 'value' => 'theme2/images/team/team4.jpg']);
         DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 28, 'value' => 'Patricia Green']);
         DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 29, 'value' => 'Graphic Designer']);
         DB::table($table)->insert(['comp_section_id' => 47,'comp_attribute_id' => 30, 'value' => '#']);

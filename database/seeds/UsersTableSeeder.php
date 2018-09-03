@@ -36,7 +36,7 @@ class UsersTableSeeder extends Seeder
             'remember_token' => str_random(10),
         ]);
 
-        /*User::create([
+        User::create([
             'name' => 'InfinIT',
             'email' => 'ventas.infinit@gmail.com',
             'password' => bcrypt('1nf1n172018'),
@@ -46,6 +46,6 @@ class UsersTableSeeder extends Seeder
             'primary_color' => '#2E64FE',
             //'secondary_color' => '#FFFFFF',
             'remember_token' => str_random(10),
-        ]);*/
+        ]);
     }
 }

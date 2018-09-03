@@ -14,7 +14,7 @@ class ComponentAttribute extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'type', 'component_id',
+        'name', 'type', 'component_id', 'order'
     ];
 
     /**

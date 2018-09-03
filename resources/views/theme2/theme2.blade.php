@@ -161,8 +161,8 @@
                             <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 mix {{ $campo->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE }}">
                                 <div class="portfolio-item">
                                     <div class="shot-item">
-                                        <img src="{{ asset('theme2/'.$campo->where('COMPONENT_TYPE_NAME','Imagen')->first()->VALUE) }}" alt="" />  
-                                        <a class="overlay lightbox" href="{{ asset('theme2/'.$campo->where('COMPONENT_TYPE_NAME','Imagen')->first()->VALUE) }}">
+                                        <img src="{{ asset($campo->where('COMPONENT_TYPE_NAME','Imagen')->first()->VALUE) }}" alt="" />  
+                                        <a class="overlay lightbox" href="{{ asset($campo->where('COMPONENT_TYPE_NAME','Imagen')->first()->VALUE) }}">
                                             <i class="lnr lnr-eye item-icon"></i>
                                         </a>
                                     </div>               
@@ -263,7 +263,7 @@
                     @foreach ($user->getComponentValuesGroup('Equipo','Equipo',8) as $campo)
                         <div class="col-lg-3 col-md-6 col-xs-12">
                             <div class="single-team">
-                                <img src="{{ asset('theme2/'.$campo->where('COMPONENT_TYPE_NAME','Imagen')->first()->VALUE) }}" alt="">
+                                <img src="{{ asset($campo->where('COMPONENT_TYPE_NAME','Imagen')->first()->VALUE) }}" alt="">
                                 <div class="team-details">
                                     <div class="team-inner">
                                         <h4 class="team-title">{{ $campo->where('COMPONENT_TYPE_NAME','Nombre')->first()->VALUE }}</h4>

@@ -36,27 +36,52 @@
 				    		@endif
 							    <div class="card-body">
 							    	<form>
+							    		@php ($first = true)
 							      		@foreach($user->getSectionValuesToEdit($section->name) as $item)
-										  	<div class="form-group row align-items-center">
-											    <div class="col-md-3">
-											    	<label for="{{$section->code.'-'.$item->COMPONENT_TYPE_NAME}}" class="control-label">{{$item->COMPONENT_TYPE_NAME}}</label>
-											    </div>
-											    <div class="col-md-8">
-											      	<input type="text" class="form-control save{{$section->code}} campo" name="save{{$section->code}}" id="{{$section->code.'-'.$item->COMPONENT_TYPE_NAME}}" value="{{$item->VALUE}}" title="{{$item->csua_id}}">
-											    </div>
-											    <div class="col-md-1">
-											        <label class="switch small">
-											        	@if ($item->visible == '1')
-														  	<input class="big-slider-{{$section->code}}" type="checkbox" checked title="{{$item->csua_id}}">
-													  	@else
-														  	<input class="big-slider-{{$section->code}}" type="checkbox" title="{{$item->csua_id}}">
-													  	@endif
-													  	<span class="slider round small"></span>
-													</label>
-									    		</div>
-											</div>
+											@if($item->order == 1 && !$first)
+										    	</div>
+										    	<div class="shadow p-3 mb-3 bg-white rounded">
+											@endif
+											@if($item->order == 1 && $first)
+							    				@php ($first = false)
+										    	<div class="shadow p-3 mb-3 bg-white rounded">
+											@endif
+												  	<div class="form-group row align-items-center">
+													    <div class="col-md-3">
+													    	<label for="{{$section->code.'-'.$item->COMPONENT_TYPE_NAME}}" class="control-label">{{$item->COMPONENT_TYPE_NAME}}</label>
+													    </div>
+													    <div class="col-md-8">
+													    	@if ($item->COMPONENT_TYPE != 'LONG_TEXT' && $item->COMPONENT_TYPE != 'IMG')
+													    	{{-- @if ($item->COMPONENT_TYPE == 'TEXT') --}}
+													      		<input type="text" class="form-control save{{$section->code}} campo" name="save{{$section->code}}" id="{{$section->code.'-'.$item->COMPONENT_TYPE_NAME}}" value="{{$item->VALUE}}" title="{{$item->csua_id}}">
+													      	@endif
+													    	@if ($item->COMPONENT_TYPE == 'LONG_TEXT')
+													      	    <textarea class="form-control save{{$section->code}} campo" name="save{{$section->code}}" id="{{$section->code.'-'.$item->COMPONENT_TYPE_NAME}}" rows="3" title="{{$item->csua_id}}">{{$item->VALUE}}</textarea>
+													      	@endif
+													    	@if ($item->COMPONENT_TYPE == 'IMG')
+													    	 	<div class="row">
+													    			<div class="col-md-3">
+												    					<img src="{{ asset($item->VALUE) }}" alt="" style="width: 100%;">
+													    	 		</div>
+													    			<div class="col-md-9">
+													    		    	<input type="file" class="form-control-file save{{$section->code}} campo" name="save{{$section->code}}" id="{{$section->code.'-'.$item->COMPONENT_TYPE_NAME}}" title="{{$item->csua_id}}">
+													    	 		</div>
+													    	 	</div>
+													      	@endif
+													    </div>
+													    <div class="col-md-1">
+													        <label class="switch small">
+													        	@if ($item->visible == '1')
+																  	<input class="big-slider-{{$section->code}}" type="checkbox" checked title="{{$item->csua_id}}">
+															  	@else
+																  	<input class="big-slider-{{$section->code}}" type="checkbox" title="{{$item->csua_id}}">
+															  	@endif
+															  	<span class="slider round small"></span>
+															</label>
+											    		</div>
+													</div>
 										@endforeach
-											
+												</div> {{-- Cierro el último agrupamiento --}}
 										<div class="form-group row justify-content-end">
 										    <div class="col-4">
 										      	<button id="save{{$section->code}}" type="button" class="btn btn-outline-default saveChanges" disabled>Guardar Cambios</button>

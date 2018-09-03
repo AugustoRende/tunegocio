@@ -160,7 +160,7 @@
 
    				@if ($user->getComponentValue('Sobre mi','Descripción'))
 		   			<div class="intro-info">
-		   				<img src="{{ asset('theme1/'.$user->getComponentValue('Sobre mi','Imagen')) }}" alt="Profile Picture">
+		   				<img src="{{ asset($user->getComponentValue('Sobre mi','Imagen')) }}" alt="Profile Picture">
 		   				<p class="lead">{{$user->getComponentValue('Sobre mi','Descripción')}}</p>
 		   			</div>   			
    				@endif
@@ -320,7 +320,7 @@
 	        		@foreach ($user->getComponentValuesGroup('Hobbies','Galería',3) as $campo)
 	        			<div class="bgrid folio-item">
 			               	<div class="item-wrap">
-			               		<img src="{{ asset('theme1/'.$campo->where('COMPONENT_TYPE_NAME','Imagen')->first()->VALUE) }}" alt="Fútbol">
+			               		<img src="{{ asset($campo->where('COMPONENT_TYPE_NAME','Imagen')->first()->VALUE) }}" alt="Fútbol">
 			                  	<a href="#modal-{{ $i }}" class="overlay">	                  	           
 			                     	<div class="folio-item-table">
 			                     		<div class="folio-item-cell">
@@ -333,7 +333,7 @@
 
 		        		<div id="modal-{{ $i }}" class="popup-modal slider mfp-hide">	
 					     	<div class="media">
-					     		<img src="{{ asset('theme1/'.$campo->where('COMPONENT_TYPE_NAME','Imagen')->first()->VALUE) }}" alt="" />
+					     		<img src="{{ asset($campo->where('COMPONENT_TYPE_NAME','Imagen')->first()->VALUE) }}" alt="" />
 					     	</div>      	
 						   	<div class="description-box">
 						    	<h4>{{ $campo->where('COMPONENT_TYPE_NAME','Título')->first()->VALUE }}</h4>		      
