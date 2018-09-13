@@ -4,6 +4,7 @@ namespace TuNegocio\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use TuNegocio\Theme;
 use TuNegocio\User;
 
@@ -65,6 +66,23 @@ class HomeController extends Controller
         Auth::user()->updateValue($request->csua_id, $request->newValue, $request->visible);
 
         return response()->json(['response' => 'Sus cambios han sido guardados satisfactoriamente.']);
+    }
+
+    public function uploadImage(Request $request)
+    {
+        $user = Auth::user();
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $fileName = $image->getClientOriginalName();
+
+            Storage::disk('public')->putFileAs($user->url, $image, $fileName);
+
+            $value = 'storage/'.$user->url.'/'.$fileName;
+            $user->updateValue($request->csua_id, $value, NULL);
+
+            return response()->json(['response' => 'Sus cambios han sido guardados satisfactoriamente.']);
+        }
     }
     
     public function updateSectionVisibility(Request $request)

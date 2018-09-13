@@ -26,3 +26,4 @@ Route::post('/saveTheme', 'HomeController@updateTheme');
 Route::post('/generateTheme', 'HomeController@generateTheme');
 Route::post('/saveValue', 'HomeController@saveValue');
 Route::post('/updateSectionVisibility', 'HomeController@updateSectionVisibility');
+Route::post('/uploadImage', 'HomeController@uploadImage');

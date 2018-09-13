@@ -35,7 +35,7 @@
 					    		<div id="collapse{{$section->code}}" class="collapse" aria-labelledby="heading{{$section->code}}" data-parent="#accordionExample">
 				    		@endif
 							    <div class="card-body">
-							    	<form>
+							    	<form enctype="multipart/form-data">
 							    		@php ($first = true)
 							      		@foreach($user->getSectionValuesToEdit($section->name) as $item)
 											@if($item->order == 1 && !$first)
@@ -53,19 +53,26 @@
 													    <div class="col-md-8">
 													    	@if ($item->COMPONENT_TYPE != 'LONG_TEXT' && $item->COMPONENT_TYPE != 'IMG')
 													    	{{-- @if ($item->COMPONENT_TYPE == 'TEXT') --}}
-													      		<input type="text" class="form-control save{{$section->code}} campo" name="save{{$section->code}}" id="{{$section->code.'-'.$item->COMPONENT_TYPE_NAME}}" value="{{$item->VALUE}}" title="{{$item->csua_id}}">
+													      		<input type="text" class="form-control save{{$section->code}} campo" name="save{{$section->code}}" id="{{$section->code.'-'.$item->COMPONENT_TYPE_NAME.'-'.$item->csua_id}}" value="{{$item->VALUE}}" title="{{$item->csua_id}}">
 													      	@endif
 													    	@if ($item->COMPONENT_TYPE == 'LONG_TEXT')
-													      	    <textarea class="form-control save{{$section->code}} campo" name="save{{$section->code}}" id="{{$section->code.'-'.$item->COMPONENT_TYPE_NAME}}" rows="3" title="{{$item->csua_id}}">{{$item->VALUE}}</textarea>
+													      	    <textarea class="form-control save{{$section->code}} campo" name="save{{$section->code}}" id="{{$section->code.'-'.$item->COMPONENT_TYPE_NAME.'-'.$item->csua_id}}" rows="3" title="{{$item->csua_id}}">{{$item->VALUE}}</textarea>
 													      	@endif
 													    	@if ($item->COMPONENT_TYPE == 'IMG')
 													    	 	<div class="row">
 													    			<div class="col-md-3">
 												    					<img src="{{ asset($item->VALUE) }}" alt="" style="width: 100%;">
 													    	 		</div>
-													    			<div class="col-md-9">
-													    		    	<input type="file" class="form-control-file save{{$section->code}} campo" name="save{{$section->code}}" id="{{$section->code.'-'.$item->COMPONENT_TYPE_NAME}}" title="{{$item->csua_id}}">
-													    	 		</div>
+													    	 		<div class="col-md-9">
+														    	 		<form method="post" action="{{url('/uploadImage')}}" enctype="multipart/form-data">
+																		    {{ csrf_field() }}
+																		    <div class="form-group">
+																		        <input type="hidden" name="csua_id" value="{{$item->csua_id}}"/>
+																		        <input type="file" class="form-control uploadImage" name="image"/>
+																		    </div>
+																		</form>
+																	</div>
+													    		    	{{-- <input type="file" class="form-control-file save{{$section->code}} campo" name="save{{$section->code}}" id="{{$section->code.'-'.$item->COMPONENT_TYPE_NAME.'-'.$item->csua_id}}" title="{{$item->csua_id}}"> --}}
 													    	 	</div>
 													      	@endif
 													    </div>

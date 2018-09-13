@@ -59,13 +59,21 @@ $(document).ready(function(){
         button.addClass("btn-outline-default");
         button.removeClass("btn-outline-success");
 
-
         var count = campos.length;
         campos.each(function( index, campo ) {
             newValue = campo.value;
             csua_id = campo.title;
 
             saveValue(csua_id, newValue, null);
+            
+            if (campo.type == 'file') {
+                //console.log(campo.closest('form'));
+                //var formData = new FormData(campo.closest('form'));
+                console.log(campo.value);
+                $.post('/uploadImage',{image:campo.value},function(response){
+                    console.log(response);
+                });
+            }
 
             reloadPreview(index,count);
         });
@@ -113,6 +121,11 @@ $(document).ready(function(){
             $(this).attr('disabled',true);
         }
     });
+
+    $('.uploadImage').change(function (event) {
+        //TODO: Hacerlo en segundo plano AJAX
+        this.closest('form').submit();
+    })
 });
 
 
